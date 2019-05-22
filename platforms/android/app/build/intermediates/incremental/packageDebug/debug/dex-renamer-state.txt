@@ -1,0 +1,4 @@
+#Tue May 14 14:25:31 IST 2019
+base.0=D\:\\AppDevelopment\\MantraApp\\mantratrainer\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

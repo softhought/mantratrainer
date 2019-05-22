@@ -1,0 +1,326 @@
+
+  <!-- <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <img src="assets/layout/menu.svg">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar> -->
+
+
+<ion-content id="dashboardPage" >
+  <div id="container">
+    <main>
+        <!-- <section id="dashBoardTopDisplay" class="half" style="background:linear-gradient(rgba(255,49,12, 0.9), rgba(255,49,12,0.9)), url('https://image.freepik.com/free-photo/running-woman-dark-studio_23-2147752879.jpg');  background-size: cover;"> -->
+
+          <section id="dashBoardTopDisplay" class="half" style="background:linear-gradient(rgba(255,49,12, 0.9), rgba(255,49,12,0.9)), url('https://image.freepik.com/free-vector/wireframe-background_23-2148051517.jpg');  background-size: cover;">
+
+          <!-- <section id="dashBoardTopDisplay" class="half" > -->
+              
+              <ion-toolbar>
+                  <ion-buttons slot="start">
+                    <ion-menu-toggle>
+                      <ion-button>
+                          <ion-icon name="menu"></ion-icon>
+                          <!-- <ion-img src="assets/layout/menu.svg"></ion-img> -->
+                      </ion-button>
+                    </ion-menu-toggle>
+                  </ion-buttons>
+                  <ion-title>
+                   
+                    <div id="notification">
+                      <span>15</span>
+                      <ion-icon name="notifications-outline"></ion-icon>
+                    </div>
+
+                  </ion-title>
+              </ion-toolbar>
+
+              <div id="profilePicBlock">
+                  <ion-list lines="none">
+                    <ion-item>
+                        <ion-avatar slot="start">
+                          <ion-img src="assets/layout/mantra_male_trainer.png"></ion-img>
+                        </ion-avatar>
+                        <ion-label>
+                             <h4>Mithilesh Routh</h4>
+                             <p>Gym Trainer</p>
+                        </ion-label>
+                    </ion-item>
+                  </ion-list>
+              </div>
+
+              
+              <div id="topSquareBox">
+                  <ion-grid>
+                      <ion-row>
+                          <ion-col >
+                              <p>
+                                  <ion-icon name="eye" style="background: #cc10e9;"></ion-icon>
+                                  <br> Rating
+                              </p>
+                          </ion-col>
+                          <ion-col >
+                              <p>
+                                  <ion-icon name="home" style="background: #00a6c2;"></ion-icon>
+                                  <br> Rating
+                              </p>
+                          </ion-col>
+                          <ion-col >
+                              <p>
+                                  <ion-icon name="bicycle" style="background: #ff310c;"></ion-icon>
+                                  <br> Rating
+                              </p>
+                          </ion-col>
+                          <ion-col >
+                              <p>
+                                  <ion-icon name="book" style="background: #855de1;"></ion-icon>
+                                  <br> Rating
+                              </p>
+                          </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </div>
+          </section> <!-- End OF First Section-->
+        <section class="half" id="dashBoardBottomDisplay">
+         <!--Grid Start-->
+        <ion-grid>
+          <!--
+          <ion-row>
+            <ion-col >
+              <div>
+                <p>
+                  <ion-icon name="qr-scanner"></ion-icon>
+                  <br>Scanner
+                </p>
+              </div>
+            </ion-col>
+            <ion-col >
+              <div>
+                  <p>
+                      <ion-icon name="qr-scanner"></ion-icon>
+                      <br>Study Material
+                    </p>
+              </div>
+            </ion-col>
+            <ion-col >
+              <div>
+                  <p>
+                      <ion-icon name="qr-scanner"></ion-icon>
+                      <br>Examination
+                    </p>
+              </div>
+            </ion-col>
+          </ion-row>-- Row One -->
+
+          <ion-row>
+              <ion-col >
+                <div>
+                    <img class="img-valign" src="assets/layout/qricon.png" />
+                    <p class="coltexttitle">Scanner</p>
+                </div>
+              </ion-col>
+              <ion-col >
+                <div>
+                    <img class="img-valign" src="assets/layout/studymaterail.png" />
+                    <p class="coltexttitle">Study Material</p>
+                </div>
+              </ion-col>
+             
+            </ion-row>
+
+            <ion-row>
+                <ion-col >
+                  <div>
+                      <img class="img-valign" src="assets/layout/onlineexam.png" />
+                      <p class="coltexttitle">Online Exam</p>
+                      
+                  </div>
+                </ion-col>
+                <ion-col >
+                  <div routerLink= "/branchselection" style="outline : none;">
+                      <img class="img-valign" src="assets/layout/exercisetracker.png" />
+                      <p class="coltexttitle" >Exercise Tracker</p>
+                     
+                  </div>
+                </ion-col>
+               
+            </ion-row>
+
+            <ion-row>
+                <ion-col >
+                  <div>
+                      <img class="img-valign" src="assets/layout/onlineexam.png" />
+                      <p class="coltexttitle">Online Exam</p>
+                      
+                  </div>
+                </ion-col>
+                <ion-col >
+                  <div>
+                      <img class="img-valign" src="assets/layout/exercisetracker.png" />
+                      <p class="coltexttitle">Others</p>
+                     
+                  </div>
+                </ion-col>
+               
+            </ion-row>
+
+            
+
+
+       
+
+              
+              
+
+        </ion-grid><!--Grid ONE-->
+
+
+         <!--Grid End-->
+
+
+        <!--ION SCROLL
+        Commented on 09.05.2019
+      
+
+     
+          <div id="bottomSliderDashboard">
+            <div id="sliderdesc">
+               Scroll to view more   <ion-img src="assets/layout/next.png"></ion-img>
+            </div>
+          <div class="scrolling-wrapper">
+              <div class="card">
+                  <ion-card id="card1">
+                      <ion-card-content>
+                        
+                     
+                          <img class="img-valign" src="assets/layout/attd.png" />
+                          <h4 class="coltexttitle">Attendance History</h4>
+                      </ion-card-content>
+                  </ion-card>
+
+              </div>
+
+              <div class="card">
+               
+                  <ion-card id="card2">
+                      <ion-card-content>
+                        
+                      
+                          <img class="img-valign" src="assets/layout/attd.png" />
+                          <h4 class="coltexttitle">Attendance History</h4>
+                      </ion-card-content>
+                  </ion-card>
+
+
+              </div>
+
+              <div class="card">
+                  <ion-card id="card3">
+                      <ion-card-content>
+                        
+                          <img class="img-valign" src="assets/layout/attd.png" />
+                          <h4 class="coltexttitle">Attendance History</h4>
+                      </ion-card-content>
+                  </ion-card>
+              </div>
+
+            
+             
+          </div>
+
+        </div>
+
+        -->
+        
+          <!--
+
+          <div class="scrolling-wrapper-flexbox">
+              <div class="card">
+                  <ion-card>
+                      <ion-card-content>
+                        <ion-card-title>
+                          Nine Inch Nails
+                          </ion-card-title>
+                        <p>
+                          The most popular industrial group ever, and largely
+                          responsible for bringing the music to a mass audience.
+                        </p>
+                      </ion-card-content>
+                </ion-card>
+              </div>
+          </div>
+
+-->
+        
+         
+
+
+
+
+        </section>
+    </main>
+    <!--
+    <ion-tabs>
+        <ion-tab-bar slot="bottom">
+      
+          <ion-tab-button tab="tab1">
+            <ion-icon name="sunny"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="tab2">
+              <ion-icon name="sunny"></ion-icon>
+              <ion-label>User</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button tab="tab2">
+              <ion-icon name="sunny"></ion-icon>
+              <ion-label>Setting</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button tab="tab2">
+              <ion-icon name="sunny"></ion-icon>
+              <ion-label>Other</ion-label>
+          </ion-tab-button>
+      
+        </ion-tab-bar>
+      </ion-tabs>
+      -->
+
+</div>
+
+
+
+</ion-content>
+<!--
+<ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="schedule">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Schedule</ion-label>
+        <ion-badge>6</ion-badge>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="speakers">
+        <ion-icon name="contacts"></ion-icon>
+        <ion-label>Speakers</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="map">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Map</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+-->
+
+
+

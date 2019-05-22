@@ -1,0 +1,85 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>assignedmembertab</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content no-padding id="assignedMemberTabPage">
+
+  <ion-list  *ngIf="isListDataAvailable">
+        <ion-item *ngFor="let member of todaysAssignedMemberList ; let i=index" (click)="goToMemberAssignment(member)">
+          <ion-avatar slot="start">
+            <img src="https://www.mantrahealthzone.co.in/images/team_mantra/793940_234_5271avirup%20chowdhury.jpg">
+          </ion-avatar>
+          <ion-label>
+            <!-- <p>{{i+1}}</p> -->
+            
+            <p><ion-icon name="card"></ion-icon> {{member.MEMBERSHIP_NO}}</p>
+            <p><ion-icon name="person"></ion-icon> {{member.CUS_NAME}}</p>
+
+            <!-- <p>{{member.timer}} {{hourText}} {{minText}} {{secText}}</p> -->
+           <p><ion-icon name="timer"></ion-icon>&nbsp;
+            <span class="hourTxt" id="timerDisplayHr_{{i}}"></span>
+            <span  id="timerDisplayHrDot_{{i}}">:</span>
+            <span class="minTxt" id="timerDisplayMin_{{i}}"></span>
+            <span  id="timerDisplayMinDot_{{i}}">:</span>
+            <span class="rTxt" id="timerDisplaySec_{{i}}"></span>
+          </p>
+           <!-- <p id="timerDisplay"></p> -->
+          </ion-label>
+          <ion-icon name="square" slot="end" class="stopicon"></ion-icon>
+        </ion-item>
+
+    
+
+  </ion-list>
+
+
+
+  <!-- Skeleton screen -->
+<div *ngIf="!isListDataAvailable">
+
+
+  <ion-list>
+ 
+    <ion-item *ngFor="let dummy of ' '.repeat(10).split(''), let x = index">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated class="text-shell"></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 90%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 70%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 30%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+
+    
+  </ion-list>
+</div>
+
+
+
+
+
+
+
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more ...">
+      </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+
+
+
+</ion-content>
+

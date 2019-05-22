@@ -1,0 +1,29 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+// for angular material
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+    ion-searchbar{
+        input {
+            box-shadow:0px 0px 0px #FFF !important;
+        }
+    }
+
+ion-header{
+    padding-top: 4%;
+}
+
+ion-col{
+    position: initial !important;
+}

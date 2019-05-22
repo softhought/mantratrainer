@@ -1,0 +1,7 @@
+{
+  "name": "mantratrainer",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+   <ion-tabs appSwipetab (ionTabsDidChange)="ionTabsDidChange($event)" (tabChange)="onTabChange($event)" #memberExreciseTrackerTab>
+      
+    <ion-tab-bar slot="bottom">
+        
+    
+        <ion-tab-button tab="nonassignedmembertab">
+          <ion-icon name="apps"></ion-icon>
+          <ion-label>Available Members</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="assignedmembertab">
+            <ion-icon name="flash"></ion-icon>
+            <ion-label>Assigned Members</ion-label>
+          </ion-tab-button>
+        
+      </ion-tab-bar>
+    
+    </ion-tabs>
+    
+    
+</ion-content>

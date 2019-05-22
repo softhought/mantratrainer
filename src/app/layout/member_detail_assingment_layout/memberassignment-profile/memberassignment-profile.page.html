@@ -1,0 +1,277 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content no-padding >
+
+<div id="memberAssignmentProfilePage">
+
+
+  <ion-grid id="memberProfileBlock" style="background:linear-gradient(rgba(255,49,12, 0.9), rgba(255,49,12,0.9)), url('https://image.freepik.com/free-vector/wireframe-background_23-2148051517.jpg');  background-size: cover;">
+
+    <ion-row id="profileImg">
+      <ion-col>
+          <!-- <ion-icon name="create"></ion-icon> -->
+          <img src="https://www.mantrahealthzone.co.in/images/team_mantra/793940_234_5271avirup%20chowdhury.jpg">
+      </ion-col>
+    </ion-row>
+
+    <ion-row id="memberDesc">
+      <ion-col>
+          <ion-row>
+            <ion-col id="membername">{{memberName}}</ion-col>
+          </ion-row>  
+
+          <ion-row>
+              <ion-col>
+                  <ion-icon name="phone-portrait"></ion-icon> {{memberMobile}}  <ion-icon name="person"></ion-icon> {{membershipNO}}
+              </ion-col>
+          </ion-row>  
+
+          <!-- <ion-row>  
+              <ion-col>
+                  <ion-icon name="person"></ion-icon> MHCMGRC00000159
+              </ion-col>
+          </ion-row>    -->
+
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row id="memberHighlightDesc">
+      <ion-col>
+          <ion-chip>
+            
+              <ion-icon name="male"></ion-icon>
+              <ion-label *ngIf=" memberGender == 'M' ">Male</ion-label>
+              <ion-label *ngIf=" memberGender == 'F' ">Female</ion-label>
+             
+            </ion-chip>
+      </ion-col>
+      <ion-col>
+          <ion-chip>
+              <ion-icon name="wallet"></ion-icon>
+              <ion-label>{{memberPackageCode}}</ion-label>
+             
+            </ion-chip>
+      </ion-col>
+      <ion-col>
+          <ion-chip>
+              <ion-icon name="logo-steam"></ion-icon>
+              <ion-label>{{selectedBranch}}</ion-label>
+             
+            </ion-chip>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+
+  <!-- Machine Assignment Block Start formControlName="vehicleCtrl" 
+  <ion-grid id="memberMachineAssignmentBlock">
+
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-item>
+     
+            <ion-label>Cardio Exercise</ion-label>
+           
+          </ion-item>
+        
+          <ion-card-content>
+           <ion-item class="customeSearchable">
+              <ion-label>Choose Machine</ion-label>
+              <ionic-selectable
+                item-content
+                itemValueField="machine_id"
+                itemTextField="machine_name"
+                [items]="machineFilteredList"
+                [canSearch]="true"
+                [canClear]="true"
+                [shouldFocusSearchbar] = "true"
+                closeButtonSlot="end"
+                closeButtonText="Close"
+                clearButtonText="Reset"
+                searchPlaceholder="Search Machine"
+                (onChange)="onMachineChange($event)">
+
+               
+
+              </ionic-selectable>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-button fill="outline" slot="end">Assign Now</ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+
+     
+      
+  </ion-grid>
+Machine Assignment Block End -->
+
+
+
+<!-- Card Block -->
+<div id="machineassignmentBlock">
+<ion-card style="background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(243, 243, 243, 0.9)), url('assets/register/register3.svg');  background-size: cover;">
+       
+      
+  <ion-card-content>
+      <ion-slides pager="false" #machineassignmentSlider>
+       
+          <ion-slide>
+           
+            
+                <!-- <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                        <h4>1. Verify  Mobile</h4>
+                    </ion-col>
+                    <ion-col>
+                        <h4>1 of 3</h4>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="inputRows">
+                    <ion-col>
+                        <ion-item no-lines>
+                            <ion-input type="number" clearInput placeholder="Enter registered mobile no"  ></ion-input> 
+                        </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row>
+                      <ion-col>
+                        <ion-button  >Send OTP <ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                        
+                      </ion-col>
+                  </ion-row>
+                </ion-grid>  -->
+
+                <form [formGroup]="assigneWithStartExerciseForm" novalidate >
+                  <ion-list id="machineassigntoMember">
+
+                    <ion-item lines="none">
+                        <!-- <ion-avatar slot="start">
+                            <img src="assets/layout/dumbbell.png">
+                        </ion-avatar> -->
+                        <ion-label>{{selectedExeName}}</ion-label>
+                        <input type="hidden" formControlName="exercisehdnId" />
+                        <input type="hidden" formControlName="hdnBranchCd" />
+                    </ion-item>
+
+                    <ion-item class="customeSearchable" lines="none">
+
+                        <!-- <ion-avatar slot="start">
+                          <img src="assets/layout/treadmill.png">
+                        </ion-avatar> -->
+                      
+                      <ion-label>Choose Machine</ion-label>
+                      <ionic-selectable
+                        item-content
+                        itemValueField="machine_id"
+                        itemTextField="machine_name"
+                        [items]="machineFilteredList"
+                        [canSearch]="true"
+                        [canClear]="true"
+                        [shouldFocusSearchbar] = "true"
+                        closeButtonSlot="end"
+                        closeButtonText="Close"
+                        clearButtonText="Reset"
+                        searchPlaceholder="Search Machine"
+                        formControlName="chooseMachine"
+                        (onChange)="onMachineChange($event)">
+        
+                        <!-- Will use later <ng-template ionicSelectableItemEndTemplate let-machine="item" let-isMachineSelected="isItemSelected">
+                          <img class="country-flag" src="https://www.mantrahealthzone.co.in/images/team_mantra/793940_234_5271avirup%20chowdhury.jpg" />
+                        </ng-template> -->
+        
+                      </ionic-selectable>
+                    </ion-item> 
+
+                    <ion-item lines="none" class="buttonitem">
+                        <ion-button slot="end" (click)="assignedMachineToMember()">Assign Now <ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                    </ion-item>
+
+                  </ion-list>
+                </form>
+
+              
+          </ion-slide>
+       
+
+      
+          <ion-slide>
+             
+            <form [formGroup]="stopAssignedMemberExerciseForm" novalidate >
+              <ion-list id="memberCalorieBlock">
+                
+
+                <div class="borderLineItem">
+                  <ion-item lines="none">
+                      <input type="hidden" formControlName="assignedId" />
+                    <ion-input placeholder="Enter Calorie" clearInput formControlName="calorieGiven" ></ion-input>
+                  </ion-item>
+                </div>
+
+                <ion-item lines="none">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col style="background: #00a84f;">
+                        <p style="text-align: center;" *ngIf="!isHourDataAvailable"><ion-spinner name="circles" style="color:#fff;"></ion-spinner></p>
+                        <p class="time_count" *ngIf="isHourDataAvailable">{{hrText}}</p>
+                        <p class="time_txt">Hour</p>
+                      </ion-col>
+                      <ion-col style="background: #0e8044;">
+                        <p style="text-align: center;" *ngIf="!isMinDataAvailable"><ion-spinner name="circles" style="color:#fff;"></ion-spinner></p>
+                        <p class="time_count" *ngIf="isMinDataAvailable">{{minText}}</p>
+                        <p class="time_txt">Min</p>
+                      </ion-col>
+                      <ion-col style="background: #00a84f;">
+                        <p style="text-align: center;"  *ngIf="!isSecDataAvailable"><ion-spinner name="circles" style="color:#fff;"></ion-spinner></p>
+                        <p class="time_count"  *ngIf="isSecDataAvailable">{{secText}}</p>
+                        <p class="time_txt">Sec</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+
+                <ion-item lines="none">
+                  <ion-button slot="end" (click)="stopExerciseProcess()">Stop Now <ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                </ion-item>
+
+              </ion-list> 
+            </form>
+              
+          </ion-slide>
+       
+
+       
+        
+    </ion-slides>
+  
+
+
+  </ion-card-content>
+</ion-card>
+</div> <!-- Member Assignment Block -->
+
+
+</div>
+
+</ion-content>

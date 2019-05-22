@@ -1,0 +1,21 @@
+#assignedMemberTabPage{
+
+    .stopicon{
+        background: #f03415;
+        color: #FFAEA1;
+        border-radius: 5px;
+        padding: 2px;
+        border: 0;
+        font-size: 0.95rem;
+    }
+    
+    .custom-skeleton ion-skeleton-text {
+        line-height: 13px;
+      }
+      
+      .custom-skeleton ion-skeleton-text:last-child {
+        margin-bottom: 5px;
+      }
+
+
+}

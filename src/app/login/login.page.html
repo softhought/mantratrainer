@@ -1,0 +1,68 @@
+<ion-content id="loginPage" scrollY="true" >
+    <div id="container">
+        <main>
+            <section class="half" id="loginTopScreen" style="background:linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('assets/loginbg.svg');  background-size: contain;">
+                
+                <div id="logo">
+                    <ion-img src="assets/mantra_logo.png"></ion-img>
+                    <h3>Mantra</h3>
+                    <p>LIFE STYLE HEALTH CLUB</p>
+                </div>
+               
+            </section>
+            <section class="half" id="loginBottomScreen" >
+                <div class="header__bg"></div>
+
+                   <!-- <p>Login with your quick pin and enjoy your panel</p>-->
+
+                        <form novalidate [formGroup]="loginForm" >
+                            <p id="logintext">Login to continue</p>
+                            <input type="hidden" formControlName="regMbl" />
+                            <ion-grid>
+                                   
+                                <ion-row>
+                                  <ion-col>
+                                      <ion-item no-lines>
+                                       
+                                          <ion-input type="number" clearInput placeholder="Enter Pin" formControlName="loginPinCtrl" ></ion-input>
+                                      </ion-item>
+                                  </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                    
+                                    <ion-col>
+                                            <ion-button style="width: 100%;" type="bbutton" *ngIf="!isLoginLoaderEnable" (click)="loginToDashboard()">Let's Start <ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                                            <ion-spinner name="bubbles" *ngIf="isLoginLoaderEnable" ></ion-spinner>
+                                    </ion-col>
+                                </ion-row>
+
+
+                                <!-- <ion-row>
+                                    <ion-col>1</ion-col>
+                                    <ion-col>2</ion-col>
+                                    <ion-col>3</ion-col>
+                                    <ion-col>4</ion-col>
+                                    <ion-col>5</ion-col>
+                                </ion-row>
+                                <ion-row>
+                                    <ion-col>6</ion-col>
+                                    <ion-col>7</ion-col>
+                                    <ion-col>8</ion-col>
+                                    <ion-col>9</ion-col>
+                                    <ion-col>0</ion-col>
+                                </ion-row> -->
+
+                                <ion-row>
+                                    <ion-col style="text-align:right;">
+                                            <ion-button id="forgotpass"> Forgot Password <ion-icon name="lock"></ion-icon></ion-button>
+                                    </ion-col>
+                                </ion-row>
+
+                               
+                            </ion-grid>
+                          </form>
+                            <p id="registerlink"><ion-button size="small" (click)="gotoRegistration()">Not yet registered. Register Now </ion-button> </p>
+            </section>
+        </main>
+    </div>
+</ion-content>

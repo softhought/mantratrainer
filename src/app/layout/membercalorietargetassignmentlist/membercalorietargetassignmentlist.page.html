@@ -1,0 +1,70 @@
+<!-- <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-toggle style="display:block !important;">
+          <ion-button>
+            <ion-icon slot="icon-only" name="menu" (click)="toggleMenu()" ></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+      <ion-title start>Header</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button text="Back"></ion-back-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+      </ion-toolbar>
+    
+  </ion-header>
+
+
+<ion-content no-padding>
+    <div id="calorieAssingmentPage">
+    <ion-card *ngFor="let dummy of ' '.repeat(10).split(''), let x = index" style="background:linear-gradient(rgba(255,49,12, 0.8), rgba(255,49,12,0.90)), url('https://image.freepik.com/free-vector/sport_48369-7051.jpg');  background-size: cover;">
+
+        <!-- <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header> -->
+      
+        <ion-card-content>
+
+          <!-- <ion-item>
+              <ion-badge color="primary">11</ion-badge>
+              <ion-badge color="secondary">22</ion-badge>
+              <ion-badge color="tertiary">33</ion-badge>
+              <ion-badge color="success">44</ion-badge>
+              <ion-badge color="warning">55</ion-badge>
+              <ion-badge color="danger">66</ion-badge>
+              <ion-badge color="light">77</ion-badge>
+              <ion-badge color="medium">88</ion-badge>
+              <ion-badge color="dark">99</ion-badge>
+          </ion-item> -->
+
+          <ion-row >
+            <ion-col size="3">
+              <img src="https://www.mantrahealthzone.co.in/images/team_mantra/793940_234_5271avirup%20chowdhury.jpg" />
+            </ion-col>
+            <ion-col size="9">
+              <h4>MHCMYSC00000072</h4>
+              <h5>ADITYA DOLUI</h5>
+              <p>BP,GGC,Male</p>
+              <ion-item lines="none">
+                  <ion-input type="text" placeholder="Calorie Target" ></ion-input>
+                  <ion-button>
+                      <ion-icon name="send"></ion-icon>
+                  </ion-button>
+              </ion-item>
+
+              
+            </ion-col>
+
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </div>
+</ion-content>
