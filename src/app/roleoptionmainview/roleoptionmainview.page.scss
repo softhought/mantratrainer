@@ -1,0 +1,82 @@
+#roleoptionmainviewPage {
+    --background: rgb(255, 99, 9);
+
+    #roleopt_upperLayout{
+        height: 50vh;
+        background: #FFF;
+        border-bottom-left-radius: 369px;
+        border-bottom-right-radius: 0px;
+        box-shadow: 4px -5px 26px 0px #371400;
+        text-align: center;
+        padding-top: 6%;
+        padding-left: 9%;
+
+        ion-img{
+            width:80px;
+            margin-left:auto;
+            margin-right:auto;
+            display:block;
+           
+        }
+
+        h3{
+            font-size: 4em;
+            text-transform: uppercase;
+            font-weight: 700;
+          //  color: #ff310c;
+            color: #F2652D;
+            margin-top: -5px;
+            text-shadow: 8px 3px 7px #DEDEDE;
+        }
+        p{
+            letter-spacing: 3px;
+            margin-top: -23px;
+        }
+    }
+
+
+    #roleopt_loweLayout{
+        ion-grid {
+            padding-top: 10%;
+            width: 80%;
+            margin: 0 auto;
+
+            ion-col{
+                padding:0;
+
+            }
+            ion-card{
+               // margin:0;
+                border-radius: 0px;
+                border: 1px solid #f05b05;
+                box-shadow: 0px 0px 0px 0px #323233;
+                ion-card-title{
+                    margin: -8px 0;
+                    color: #FFF;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    font-size: 0.7rem;
+                }
+
+                ion-icon{
+                    font-size: 3rem;
+                    color: #eeeae9;
+                }
+            }
+
+            #card1{
+                border-bottom-right-radius: 26px;
+            }
+            #card2{
+                border-bottom-left-radius: 26px; 
+            }
+            #card3{
+                border-top-right-radius: 26px; 
+            }
+            #card4{
+                border-top-left-radius: 26px; 
+            }
+
+        }
+    }
+} 

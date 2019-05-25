@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'splashscreen', pathMatch: 'full' },
+  { path: '', redirectTo: 'roleoptionmainview', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'splashscreen', loadChildren: './splashscreen/splashscreen.module#SplashscreenPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
@@ -21,6 +21,8 @@ const routes: Routes = [
   { path: 'member-machine-assignment', loadChildren: './layout/member-machine-assignment/member-machine-assignment.module#MemberMachineAssignmentPageModule' },
   { path: 'choose-exercise', loadChildren: './layout/exerciseselection/exerciseselection.module#ExerciseselectionPageModule' },
   { path: 'memberassignment-profile', loadChildren: './layout/member_detail_assingment_layout/memberassignment-profile/memberassignment-profile.module#MemberassignmentProfilePageModule' },
+  { path: 'roleoptionmainview', loadChildren: './roleoptionmainview/roleoptionmainview.module#RoleoptionmainviewPageModule' },
+
  // { path: 'mainmenu/calorieassignment', loadChildren: './layout/membercalorietargetassignmentlist/membercalorietargetassignmentlist.module#MembercalorietargetassignmentlistPageModule' },
 
   //{ path: 'tabs', loadChildren: './layout/tabs/tabs.module#TabsPageModule' },

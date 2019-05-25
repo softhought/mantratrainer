@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
+import { NavController } from '@ionic/angular';
+NavController
 
 @Component({
   selector: 'app-mainmenu',
@@ -15,13 +17,13 @@ export class MainmenuPage implements OnInit {
     },
     {
       title:'Calorie Assingment',
-      url:'trainer/calorieassignment'
+      url:'/mainmenu/trainer/calorieassignment'
     },
   ];
 
   selectedPath = '';
 
-  constructor(private router:Router) { 
+  constructor(private router:Router,public navCtrl: NavController,) { 
     this.router.events.subscribe((event:RouterEvent) => {
       this.selectedPath = event.url;
     });
@@ -33,4 +35,10 @@ export class MainmenuPage implements OnInit {
     // });
   }
 
+
+  setRootPage(url){
+   // this.router.navigateByUrl(url);
+    this.navCtrl.navigateRoot(url);
+
+  }
 }

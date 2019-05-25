@@ -111,4 +111,24 @@ export class HttpRequestHandlerService {
    });
  }
 
+
+
+ /**
+  *@ HTTP Call For Member Target Given Module 
+  *@date 24.05.2019
+  *@By Mithilesh 
+  */
+
+  getWeeklyNotAssignedTargetsMemberList(value){
+    let formValues = JSON.stringify({formdata:value});
+    return new Promise(resolve => {
+      this.http.post(this.global.weeklyNotAssignedTargetsMemberList,formValues).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+ 
+
 }

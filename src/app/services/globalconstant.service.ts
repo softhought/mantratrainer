@@ -50,6 +50,11 @@ export class GlobalconstantService {
   public assignedMemberDetailByID_URL = this.APIURL+"mantratrainerAppService/assignedMemberDetailByID";
   public stopAssignedExercise_URL = this.APIURL+"mantratrainerAppService/stopAssignedExercise";
 
+  /**
+   * @URL List for member target given module
+   */
+  public weeklyNotAssignedTargetsMemberList = this.APIURL+"mantratrainerAppService/getweeklyNotAssignedTargetsMembersList";
+
 
 
   getApiURL(){
