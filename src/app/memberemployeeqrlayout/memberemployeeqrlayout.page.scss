@@ -1,0 +1,30 @@
+#memberemployeeQRlayoutPage{
+    height: 100%;
+    text-align: center;
+
+
+    #upperMemberQrLayout{
+        height:40vh;
+        //background: rgb(255, 99, 9);
+    }
+
+    #lowerEmployeeQrLayout{
+        height:60vh;
+        background: rgb(255, 99, 9);
+      //  border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+    }
+
+    .iconwithtitleQRT{
+        width:200px;
+        margin:0 auto;
+        margin-top: 5%;
+
+        ion-icon{
+            font-size: 5rem;
+        }
+        h6{
+            margin-top: -10px;
+        }
+    }
+}
