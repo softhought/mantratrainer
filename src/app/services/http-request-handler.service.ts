@@ -119,8 +119,8 @@ export class HttpRequestHandlerService {
   *@By Mithilesh 
   */
 
-  getWeeklyNotAssignedTargetsMemberList(value){
-    let formValues = JSON.stringify({formdata:value});
+  getWeeklyNotAssignedTargetsMemberList(value,page){
+    let formValues = JSON.stringify({formdata:value,pageno:page});
     return new Promise(resolve => {
       this.http.post(this.global.weeklyNotAssignedTargetsMemberList,formValues).subscribe(data => {
         resolve(data);
@@ -130,5 +130,17 @@ export class HttpRequestHandlerService {
     });
   }
  
+
+  assignMemberCalorieTarget(formObj){
+    let formValues = JSON.stringify({formdata:formObj});
+    return new Promise(resolve => {
+     this.http.post(this.global.assigncalorieTargetToMember_URL,formValues).subscribe(data => {
+       resolve(data);
+     }, err => {
+       console.log(err);
+     });
+   });
+ }
+
 
 }

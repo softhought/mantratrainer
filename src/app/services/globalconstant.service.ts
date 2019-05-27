@@ -54,6 +54,7 @@ export class GlobalconstantService {
    * @URL List for member target given module
    */
   public weeklyNotAssignedTargetsMemberList = this.APIURL+"mantratrainerAppService/getweeklyNotAssignedTargetsMembersList";
+  public assigncalorieTargetToMember_URL = this.APIURL+"mantratrainerAppService/assigncalorieTargetToMember";
 
 
 
