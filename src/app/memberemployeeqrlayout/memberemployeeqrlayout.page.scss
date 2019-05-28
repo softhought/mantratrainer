@@ -1,27 +1,124 @@
 #memberemployeeQRlayoutPage{
     height: 100%;
     text-align: center;
+    background: #ff6200;
+    --padding: 0px;
+    position: relative;
+    margin: 0;
 
 
     #upperMemberQrLayout{
-        height:40vh;
+      //  height:40vh;
         //background: rgb(255, 99, 9);
+        position: absolute;
+        top:5%;
+        left:0;
+        right:0;
+        margin:auto;
+
+        ion-button{
+            --border-radius: 50px !important;
+            --background: #FFF;
+            color: #958a8a;
+            letter-spacing: 2px;
+
+        }
+
+        .memberIcon{
+            border-radius: 17px;
+
+            //border:1px solid #eee;
+            //border-bottom-right-radius: 50px;
+
+         //   box-shadow: -7px -4px 18px 1px #d55201;
+            padding: 1% 0;
+
+            ion-icon{
+                color: #fff;
+            }
+            h6{
+                letter-spacing: 1px;
+                color: #fff;
+                font-size: 14px;
+            }
+        }
+    }
+
+    #middleLayout{
+        position: absolute;
+        top: 48%;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        #memberInstruction,#employeeInstruction{
+            font-size: 12px;
+            letter-spacing: 1px;
+            width: 90%;
+            margin: 0 auto;
+            color: #551D00;
+
+            p{
+                margin: 0px;
+            }
+            .htmlicon_attd{
+                font-size: 4rem;
+            }
+        }
+        .customHR{
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(189, 73, 0), rgba(0, 0, 0, 0));
+        }
     }
 
     #lowerEmployeeQrLayout{
-        height:60vh;
-        background: rgb(255, 99, 9);
+       // height:60vh;
+     //   background: rgb(255, 99, 9);
       //  border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
+       // border-top-right-radius: 50%;
+       position: absolute;
+        bottom:5%;
+        left:0;
+        right:0;
+        margin:auto;
+
+
+        ion-button{
+            --border-radius: 50px !important;
+            --background: #FFF;
+            color: #958a8a;
+            letter-spacing: 2px;
+
+        }
+
+        .employeeIcon{
+            border-radius: 17px;
+         //   border:1px solid #eee;
+         //   border-bottom-right-radius: 50px;
+
+        //    box-shadow: -7px -4px 18px 1px #d55201;
+            padding: 1% 0;
+
+            ion-icon{
+                color: #fff;
+            }
+            h6{
+                letter-spacing: 1px;
+                color: #fff;
+                font-size: 14px;
+            }
+        }
     }
 
     .iconwithtitleQRT{
-        width:200px;
+        width: 116px;
         margin:0 auto;
         margin-top: 5%;
-
+      
         ion-icon{
-            font-size: 5rem;
+            font-size: 3rem;
+            padding: 10% 0;
         }
         h6{
             margin-top: -10px;

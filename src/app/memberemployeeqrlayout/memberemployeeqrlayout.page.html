@@ -2,23 +2,22 @@
   <div id="memberemployeeQRlayoutPage">
       <div id="upperMemberQrLayout">
 
-        <div class="iconwithtitleQRT">
+        <div class="iconwithtitleQRT memberIcon">
           <ion-icon name="people"></ion-icon>
-          <h6 style="margin-top: -20px;">Member</h6>
+          <h6 style="margin-top: -16px;">Member</h6>
         </div>
       
       <ion-grid>
         <ion-row>
           <ion-col text-right>
               <ion-button>
-                  <ion-icon slot="start" name="star"></ion-icon>
-                  IN
+                  <ion-icon name="arrow-round-back"></ion-icon> IN&nbsp;
               </ion-button>
           </ion-col>
           <ion-col text-left>
               <ion-button>
-                  OUT
-                  <ion-icon slot="end" name="star"></ion-icon>
+                 OUT
+                  <ion-icon name="arrow-round-forward"></ion-icon>
               </ion-button>
           </ion-col>
         </ion-row>
@@ -26,28 +25,39 @@
 
 
       </div><!-- end of upperMemberQrLayout-->
+      <div id="middleLayout">
+        <div id="memberInstruction">
+          <!-- <p class="htmlicon_attd">&#x261D;</p>
+          <p>For Member attendance please choose member IN or OUT </p> -->
+        </div>
+        <hr class="customHR" />
+        <hr>
+        <div id="employeeInstruction">
+            <!-- <p>For employee attendance please choose employee IN or OUT </p>
+            <p class="htmlicon_attd">&#x261F;</p> -->
+          </div>
+      </div>
 
       <div id="lowerEmployeeQrLayout">
-          <div class="iconwithtitleQRT">
+          <div class="iconwithtitleQRT employeeIcon">
               <ion-icon name="briefcase"></ion-icon>
               <h6 >Employee</h6>
           </div>
-        <ion-grid>
-            <ion-row>
-              <ion-col text-right>
-                  <ion-button>
-                      <ion-icon slot="start" name="star"></ion-icon>
-                      IN
-                  </ion-button>
-              </ion-col>
-              <ion-col text-left>
-                  <ion-button>
-                      OUT
-                      <ion-icon slot="end" name="star"></ion-icon>
-                  </ion-button>
-              </ion-col>
-            </ion-row>
-        </ion-grid>
+          <ion-grid>
+              <ion-row>
+                <ion-col text-right>
+                    <ion-button>
+                        <ion-icon name="arrow-round-back"></ion-icon> IN&nbsp;
+                    </ion-button>
+                </ion-col>
+                <ion-col text-left>
+                    <ion-button>
+                       OUT
+                        <ion-icon name="arrow-round-forward"></ion-icon>
+                    </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
       </div><!-- end of upperMemberQrLayout-->
   </div>
 </ion-content>
