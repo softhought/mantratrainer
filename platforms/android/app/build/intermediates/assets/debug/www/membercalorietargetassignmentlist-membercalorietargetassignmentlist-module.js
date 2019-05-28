@@ -39,6 +39,7 @@ var MembercalorietargetassignmentlistPageModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
             ],
             declarations: [_membercalorietargetassignmentlist_page__WEBPACK_IMPORTED_MODULE_6__["MembercalorietargetassignmentlistPage"]]
@@ -58,7 +59,7 @@ var MembercalorietargetassignmentlistPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header>\n    <ion-toolbar>\n      <ion-buttons slot=\"start\">\n        <ion-menu-toggle style=\"display:block !important;\">\n          <ion-button>\n            <ion-icon slot=\"icon-only\" name=\"menu\" (click)=\"toggleMenu()\" ></ion-icon>\n          </ion-button>\n        </ion-menu-toggle>\n      </ion-buttons>\n      <ion-title start>Header</ion-title>\n    </ion-toolbar>\n  </ion-header> -->\n\n  <ion-header>\n      <ion-toolbar>\n        <ion-buttons slot=\"start\">\n          <ion-back-button text=\"Back\"></ion-back-button>\n        </ion-buttons>\n        <ion-title></ion-title>\n      </ion-toolbar>\n    \n  </ion-header>\n\n\n<ion-content no-padding>\n    <div id=\"calorieAssingmentPage\">\n    <ion-card *ngFor=\"let dummy of ' '.repeat(10).split(''), let x = index\" style=\"background:linear-gradient(rgba(255,49,12, 0.8), rgba(255,49,12,0.90)), url('https://image.freepik.com/free-vector/sport_48369-7051.jpg');  background-size: cover;\">\n\n        <!-- <ion-card-header>\n          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>\n          <ion-card-title>Card Title</ion-card-title>\n        </ion-card-header> -->\n      \n        <ion-card-content>\n\n          <!-- <ion-item>\n              <ion-badge color=\"primary\">11</ion-badge>\n              <ion-badge color=\"secondary\">22</ion-badge>\n              <ion-badge color=\"tertiary\">33</ion-badge>\n              <ion-badge color=\"success\">44</ion-badge>\n              <ion-badge color=\"warning\">55</ion-badge>\n              <ion-badge color=\"danger\">66</ion-badge>\n              <ion-badge color=\"light\">77</ion-badge>\n              <ion-badge color=\"medium\">88</ion-badge>\n              <ion-badge color=\"dark\">99</ion-badge>\n          </ion-item> -->\n\n          <ion-row >\n            <ion-col size=\"3\">\n              <img src=\"https://www.mantrahealthzone.co.in/images/team_mantra/793940_234_5271avirup%20chowdhury.jpg\" />\n            </ion-col>\n            <ion-col size=\"9\">\n              <h4>MHCMYSC00000072</h4>\n              <h5>ADITYA DOLUI</h5>\n              <p>BP,GGC,Male</p>\n              <ion-item lines=\"none\">\n                  <ion-input type=\"text\" placeholder=\"Calorie Target\" ></ion-input>\n                  <ion-button>\n                      <ion-icon name=\"send\"></ion-icon>\n                  </ion-button>\n              </ion-item>\n\n              \n            </ion-col>\n\n          </ion-row>\n        </ion-card-content>\n      </ion-card>\n    </div>\n</ion-content>\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-toggle>\r\n        <ion-button>\r\n            <ion-icon name=\"menu\"></ion-icon>\r\n            <!-- <ion-img src=\"assets/layout/menu.svg\"></ion-img> -->\r\n        </ion-button>\r\n      </ion-menu-toggle>\r\n    </ion-buttons>\r\n</ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n<ion-content no-padding>\r\n    <div id=\"calorieAssingmentPage\">\r\n\r\n    <div *ngIf=\"isDataAvailable\">\r\n    <ion-card [@slideInOut] *ngFor=\"let memberlist of weeklyNotAssignedTargetsMemberList ; let x = index\" style=\"background:linear-gradient(rgba(255,49,12, 0.8), rgba(255,49,12,0.90)), url('https://image.freepik.com/free-vector/sport_48369-7051.jpg');  background-size: cover;\">\r\n        <form [formGroup]=\"calorieAssingmentFormGroup\" \r\n        (ngSubmit)=\"submitForm(calorieAssingmentFormGroup.value,memberlist,x)\" class=\"text-left note\" id=\"f_{{x}}\">\r\n        <ion-card-content>\r\n          <ion-row >\r\n            <ion-col size=\"3\">\r\n              <img src=\"https://www.mantrahealthzone.co.in/images/team_mantra/793940_234_5271avirup%20chowdhury.jpg\" />\r\n            </ion-col>\r\n            <ion-col size=\"9\">\r\n              <h4>{{memberlist.MEMBERSHIP_NO}}</h4>\r\n              <h5>{{memberlist.CUS_NAME}}</h5>\r\n              <p>{{memberlist.CUS_BRANCH}},{{memberlist.CUS_CARD}},{{memberlist.CUS_SEX}}</p>\r\n              <ion-item lines=\"none\">\r\n                  <ion-input type=\"text\" formControlName=\"calorieValue\" placeholder=\"Calorie Target\" ></ion-input>\r\n\r\n                  <ion-button type=\"submit\" id=\"calorieTargetSendBtn_{{x}}\">\r\n                      <ion-icon name=\"send\"></ion-icon>\r\n                  </ion-button>\r\n\r\n                  <ion-button type=\"button\" id=\"calorieTargetLoaderBtn_{{x}}\" style=\"display:none;\">\r\n                    <ion-spinner name=\"bubbles\"></ion-spinner>\r\n                  </ion-button>\r\n              </ion-item>\r\n\r\n              \r\n            </ion-col>\r\n\r\n          </ion-row>\r\n       \r\n        </ion-card-content>\r\n      </form>\r\n      </ion-card>\r\n    </div>\r\n\r\n\r\n\r\n   \r\n      <!-- SKELTON lOADER -->\r\n      <div *ngIf=\"!isDataAvailable\">\r\n      <ion-card  *ngFor=\"let dummy of ' '.repeat(10).split(''), let x = index\" >\r\n        <ion-card-content>\r\n          <ion-row >\r\n            <ion-col size=\"3\">\r\n              <ion-skeleton-text animated class=\"text-shell\"></ion-skeleton-text>\r\n            </ion-col>\r\n            <ion-col size=\"9\">\r\n              <h4><ion-skeleton-text animated=\"true\" class=\"text-shell gradient-animation\" style=\"width: 60%\"></ion-skeleton-text></h4>\r\n              <h5><ion-skeleton-text animated=\"true\" class=\"text-shell gradient-animation\" style=\"width: 75%\"></ion-skeleton-text></h5>\r\n              <p>   <ion-skeleton-text animated=\"true\" class=\"text-shell gradient-animation\" style=\"width: 20%\"></ion-skeleton-text>,   <ion-skeleton-text animated=\"true\" class=\"text-shell gradient-animation\" style=\"width: 20%\"></ion-skeleton-text>,<ion-skeleton-text animated=\"true\" class=\"text-shell gradient-animation\" style=\"width: 30%\"></ion-skeleton-text></p>\r\n\r\n              <ion-item lines=\"none\">\r\n                <ion-skeleton-text animated=\"true\" class=\"text-shell gradient-animation\" style=\"width: 80%\"></ion-skeleton-text>\r\n                <ion-skeleton-text animated=\"true\" class=\"text-shell gradient-animation\" style=\"width: 10%\"></ion-skeleton-text>\r\n              </ion-item>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-card-content>\r\n     </ion-card>\r\n    </div>\r\n\r\n\r\n\r\n\r\n\r\n    </div>\r\n\r\n\r\n\r\n    <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadData($event)\">\r\n      <ion-infinite-scroll-content\r\n        loadingSpinner=\"bubbles\"\r\n        loadingText=\"Loading more ...\">\r\n      </ion-infinite-scroll-content>\r\n   </ion-infinite-scroll>\r\n\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -85,20 +86,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MembercalorietargetassignmentlistPage", function() { return MembercalorietargetassignmentlistPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_http_request_handler_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/http-request-handler.service */ "./src/app/services/http-request-handler.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
+
+
+
+
 
 
 var MembercalorietargetassignmentlistPage = /** @class */ (function () {
-    function MembercalorietargetassignmentlistPage() {
+    function MembercalorietargetassignmentlistPage(_httpRequestHandlerService, toastController, fb) {
+        this._httpRequestHandlerService = _httpRequestHandlerService;
+        this.toastController = toastController;
+        this.weeklyNotAssignedTargetsMemberList = [];
+        this.page = 1;
+        this.perPage = 0;
+        this.totalData = 0;
+        this.totalPage = 0;
+        this.isDataAvailable = false;
+        this.calorieAssingmentFormGroup = fb.group({
+            'calorieValue': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(5)])],
+        });
     }
     MembercalorietargetassignmentlistPage.prototype.ngOnInit = function () {
+        this.getWeeklyNotAssignedTargetsMemberList();
+    };
+    MembercalorietargetassignmentlistPage.prototype.getWeeklyNotAssignedTargetsMemberList = function () {
+        var _this = this;
+        var response;
+        this._httpRequestHandlerService.getWeeklyNotAssignedTargetsMemberList("CALORIE", this.page).then(function (data) {
+            response = data;
+            if (response.STATUS == 200 && response.STATUS_MSG == "SUCCESS") {
+                var weeklyNotAssignedTargetsMember = response.RESULT;
+                _this.weeklyNotAssignedTargetsMemberList = response.RESULT;
+                if (_this.weeklyNotAssignedTargetsMemberList.length > 0) {
+                    _this.isDataAvailable = true;
+                }
+            }
+            else {
+                _this.presentToastWithOptions('Some Problem.Please try again later...', 'bottom');
+            }
+        }, function (error) {
+            console.log(error);
+            console.log("Error on login");
+        });
+    };
+    MembercalorietargetassignmentlistPage.prototype.submitForm = function (value, memberObj, srl) {
+        var _this = this;
+        console.log(value);
+        console.log(memberObj);
+        document.querySelector('#calorieTargetSendBtn_' + srl).style.display = 'none';
+        document.querySelector('#calorieTargetLoaderBtn_' + srl).style.display = 'block';
+        var formData = {
+            'calorie_target_value': value,
+            'membership_no': memberObj.MEMBERSHIP_NO,
+            'member_id': memberObj.CUS_ID,
+            'member_card': memberObj.CUS_CARD,
+            'member_branch': memberObj.CUS_BRANCH
+        };
+        var response;
+        this._httpRequestHandlerService.assignMemberCalorieTarget(formData).then(function (data) {
+            if (data.STATUS == 200 && data.STATUS_MSG == "SUCCESS") {
+                response = data.RESULT;
+                // this.router.navigate(['/member-machine-assignment']);
+                document.querySelector('#calorieTargetSendBtn_' + srl).style.display = 'block';
+                document.querySelector('#calorieTargetLoaderBtn_' + srl).style.display = 'none';
+                _this.weeklyNotAssignedTargetsMemberList.splice(srl, 1);
+            }
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    MembercalorietargetassignmentlistPage.prototype.loadData = function (event) {
+        var _this = this;
+        this.isDataAvailable = true;
+        this.page = this.page + 1;
+        setTimeout(function () {
+            var response;
+            _this._httpRequestHandlerService.getWeeklyNotAssignedTargetsMemberList("CALORIE", _this.page).then(function (data) {
+                response = data;
+                var weeklyNotAssignedTargetsMember = response.RESULT;
+                var count = Object.keys(weeklyNotAssignedTargetsMember).length;
+                for (var i = 0; i < count; i++) {
+                    _this.weeklyNotAssignedTargetsMemberList.push(response.RESULT[i]);
+                }
+                if (count > 0) {
+                    _this.isDataAvailable = true;
+                }
+            }, function (error) {
+                console.log(error);
+                console.log("Error on fetching ");
+            });
+            event.target.complete();
+        }, 1000);
+    };
+    MembercalorietargetassignmentlistPage.prototype.presentToastWithOptions = function (msg, pos) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: msg,
+                            showCloseButton: true,
+                            position: pos,
+                            animated: true,
+                            color: 'light',
+                            keyboardClose: true,
+                            closeButtonText: 'X',
+                            duration: 3000,
+                            cssClass: 'customToastCls'
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     MembercalorietargetassignmentlistPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-membercalorietargetassignmentlist',
             template: __webpack_require__(/*! ./membercalorietargetassignmentlist.page.html */ "./src/app/layout/membercalorietargetassignmentlist/membercalorietargetassignmentlist.page.html"),
+            animations: [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["trigger"])('slideInOut', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["transition"])(':enter', [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["style"])({ transform: 'translateY(-100%)' }),
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["animate"])('200ms ease-in', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["style"])({ transform: 'translateY(0%)' }))
+                    ]),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["transition"])(':leave', [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["animate"])('200ms ease-in', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_5__["style"])({ transform: 'translateY(-100%)' }))
+                    ])
+                ])
+            ],
             styles: [__webpack_require__(/*! ./membercalorietargetassignmentlist.page.scss */ "./src/app/layout/membercalorietargetassignmentlist/membercalorietargetassignmentlist.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_http_request_handler_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestHandlerService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
     ], MembercalorietargetassignmentlistPage);
     return MembercalorietargetassignmentlistPage;
 }());

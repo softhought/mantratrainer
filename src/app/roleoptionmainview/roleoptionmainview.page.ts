@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterEvent } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-roleoptionmainview',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoleoptionmainviewPage implements OnInit {
 
-  constructor() { }
+  constructor(public navCtrl: NavController,private router:Router) { }
 
   ngOnInit() {
+  }
+
+  redirectToUrl(tag)
+  {
+    if(tag=="QR"){
+      this.router.navigateByUrl('choosecategory');
+     // this.navCtrl.navigateRoot("choosecategory");
+    }
+    else if(tag=="EMPLOYEE"){
+      this.router.navigateByUrl('employeeqrgeneration');
+    }
+    else if(tag=="TRAINER"){
+      this.router.navigateByUrl('register');
+    }
+    else{
+      // For Help
+    }
+
   }
 
 }

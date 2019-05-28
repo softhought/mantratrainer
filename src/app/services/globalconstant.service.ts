@@ -33,6 +33,7 @@ export class GlobalconstantService {
   public setloginpin_URL = this.APIURL+"mantratrainerAppService/setLoginPin";
   public login_URL = this.APIURL+"mantratrainerAppService/verifyLogin";
 
+  public verifymobile_URL = this.APIURL+"mantratrainerAppService/verifyMobile";
 
   /**
    * Master data Fetch

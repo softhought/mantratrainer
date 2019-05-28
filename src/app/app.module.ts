@@ -28,7 +28,8 @@ import { HttpRequestHandlerService } from './services/http-request-handler.servi
 import { DataShareService } from './services/data-share.service';
 import { IonicSelectableModule } from 'ionic-selectable';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
-
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,7 +44,8 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(), 
     AppRoutingModule,
-    IonicSelectableModule
+    IonicSelectableModule,
+    QRCodeModule
     //RouterModule
   ],
   providers: [
@@ -54,6 +56,7 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
     AuthService,
     HttpRequestHandlerService,
     DataShareService,
+    QRScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,

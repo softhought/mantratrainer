@@ -13,7 +13,7 @@
         <ion-row text-center>
           <ion-col>
             <div>
-                <ion-card id="card1">
+                <ion-card id="card1" (click)="redirectToUrl('EMPLOYEE')">
                     <ion-card-header>
                         <ion-card-subtitle><ion-icon name="people"></ion-icon></ion-card-subtitle>
                         <ion-card-title>Employee</ion-card-title>
@@ -26,7 +26,7 @@
           </ion-col>
           <ion-col>
                 <div>
-                    <ion-card id="card2">
+                    <ion-card id="card2" (click)="redirectToUrl('TRAINER')">
                             <ion-card-header>
                                 <ion-card-subtitle><ion-icon name="bicycle"></ion-icon></ion-card-subtitle>
                                 <ion-card-title>Trainer</ion-card-title>
@@ -44,7 +44,7 @@
         <ion-row text-center>
                 <ion-col>
                     <div>
-                      <ion-card id="card3">
+                      <ion-card id="card3" (click)="redirectToUrl('QR')">
                           <ion-card-header>
                             <ion-card-subtitle><ion-icon name="qr-scanner"></ion-icon></ion-card-subtitle>
                             <ion-card-title>QR Scan</ion-card-title>
@@ -57,7 +57,7 @@
                 </ion-col>
                 <ion-col>
                         <div>
-                            <ion-card id="card4">
+                            <ion-card id="card4" (click)="redirectToUrl('HELP')">
                                   <ion-card-header>
                                       <ion-card-subtitle><ion-icon name="help"></ion-icon></ion-card-subtitle>
                                       <ion-card-title>Help</ion-card-title>

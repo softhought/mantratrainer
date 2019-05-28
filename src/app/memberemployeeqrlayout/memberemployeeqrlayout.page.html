@@ -10,12 +10,12 @@
       <ion-grid>
         <ion-row>
           <ion-col text-right>
-              <ion-button>
+              <ion-button (click)="openQRScanner('MEMBER','IN')">
                   <ion-icon name="arrow-round-back"></ion-icon> IN&nbsp;
               </ion-button>
           </ion-col>
           <ion-col text-left>
-              <ion-button>
+              <ion-button (click)="openQRScanner('MEMBER','OUT')">
                  OUT
                   <ion-icon name="arrow-round-forward"></ion-icon>
               </ion-button>
@@ -46,12 +46,12 @@
           <ion-grid>
               <ion-row>
                 <ion-col text-right>
-                    <ion-button>
+                    <ion-button (click)="openQRScanner('EMPLOYEE','IN')">
                         <ion-icon name="arrow-round-back"></ion-icon> IN&nbsp;
                     </ion-button>
                 </ion-col>
                 <ion-col text-left>
-                    <ion-button>
+                    <ion-button (click)="openQRScanner('EMPLOYEE','OUT')">
                        OUT
                         <ion-icon name="arrow-round-forward"></ion-icon>
                     </ion-button>

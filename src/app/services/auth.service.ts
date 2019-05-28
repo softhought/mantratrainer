@@ -66,6 +66,17 @@ export class AuthService {
       });
     });
   }
+  
 
+  verifyMobile(formData){
+    let formValues = JSON.stringify({formData:formData});
+    return new Promise(resolve => {
+      this.http.post(this.global.verifymobile_URL,formValues).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 
 }

@@ -854,6 +854,10 @@ var map = {
 		"./src/app/layout/nonassignedmembertab/nonassignedmembertab.module.ts",
 		"nonassignedmembertab-nonassignedmembertab-module"
 	],
+	"./employeeqrgeneration/employeeqrgeneration.module": [
+		"./src/app/employeeqrgeneration/employeeqrgeneration.module.ts",
+		"employeeqrgeneration-employeeqrgeneration-module"
+	],
 	"./home/home.module": [
 		"./src/app/home/home.module.ts",
 		"home-home-module"
@@ -895,9 +899,17 @@ var map = {
 		"./src/app/login/login.module.ts",
 		"login-login-module"
 	],
+	"./memberemployeeqrlayout/memberemployeeqrlayout.module": [
+		"./src/app/memberemployeeqrlayout/memberemployeeqrlayout.module.ts",
+		"memberemployeeqrlayout-memberemployeeqrlayout-module"
+	],
 	"./register/register.module": [
 		"./src/app/register/register.module.ts",
 		"register-register-module"
+	],
+	"./roleoptionmainview/roleoptionmainview.module": [
+		"./src/app/roleoptionmainview/roleoptionmainview.module.ts",
+		"roleoptionmainview-roleoptionmainview-module"
 	],
 	"./splashscreen/splashscreen.module": [
 		"./src/app/splashscreen/splashscreen.module.ts",
@@ -1094,7 +1106,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '', redirectTo: 'splashscreen', pathMatch: 'full' },
+    { path: '', redirectTo: 'roleoptionmainview', pathMatch: 'full' },
     { path: 'home', loadChildren: './home/home.module#HomePageModule' },
     { path: 'splashscreen', loadChildren: './splashscreen/splashscreen.module#SplashscreenPageModule' },
     { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
@@ -1111,6 +1123,9 @@ var routes = [
     { path: 'member-machine-assignment', loadChildren: './layout/member-machine-assignment/member-machine-assignment.module#MemberMachineAssignmentPageModule' },
     { path: 'choose-exercise', loadChildren: './layout/exerciseselection/exerciseselection.module#ExerciseselectionPageModule' },
     { path: 'memberassignment-profile', loadChildren: './layout/member_detail_assingment_layout/memberassignment-profile/memberassignment-profile.module#MemberassignmentProfilePageModule' },
+    { path: 'roleoptionmainview', loadChildren: './roleoptionmainview/roleoptionmainview.module#RoleoptionmainviewPageModule' },
+    { path: 'choosecategory', loadChildren: './memberemployeeqrlayout/memberemployeeqrlayout.module#MemberemployeeqrlayoutPageModule' },
+    { path: 'employeeqrgeneration', loadChildren: './employeeqrgeneration/employeeqrgeneration.module#EmployeeqrgenerationPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1135,7 +1150,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
+module.exports = "<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n"
 
 /***/ }),
 
@@ -1235,6 +1250,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_data_share_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/data-share.service */ "./src/app/services/data-share.service.ts");
 /* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ionic-selectable */ "./node_modules/ionic-selectable/esm5/ionic-selectable.min.js");
 /* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
+/* harmony import */ var _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/qr-scanner/ngx */ "./node_modules/@ionic-native/qr-scanner/ngx/index.js");
+/* harmony import */ var angularx_qrcode__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! angularx-qrcode */ "./node_modules/angularx-qrcode/dist/index.js");
 
 
 
@@ -1244,6 +1261,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // For Angular Material
+
+
 
 
 
@@ -1274,7 +1293,8 @@ var AppModule = /** @class */ (function () {
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
                 _ionic_storage__WEBPACK_IMPORTED_MODULE_7__["IonicStorageModule"].forRoot(),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
-                ionic_selectable__WEBPACK_IMPORTED_MODULE_19__["IonicSelectableModule"]
+                ionic_selectable__WEBPACK_IMPORTED_MODULE_19__["IonicSelectableModule"],
+                angularx_qrcode__WEBPACK_IMPORTED_MODULE_22__["QRCodeModule"]
                 //RouterModule
             ],
             providers: [
@@ -1285,6 +1305,7 @@ var AppModule = /** @class */ (function () {
                 _services_auth_service__WEBPACK_IMPORTED_MODULE_16__["AuthService"],
                 _services_http_request_handler_service__WEBPACK_IMPORTED_MODULE_17__["HttpRequestHandlerService"],
                 _services_data_share_service__WEBPACK_IMPORTED_MODULE_18__["DataShareService"],
+                _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_21__["QRScanner"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HTTP_INTERCEPTORS"],
@@ -1374,6 +1395,17 @@ var AuthService = /** @class */ (function () {
         var formValues = JSON.stringify({ loginInfo: loginForm });
         return new Promise(function (resolve) {
             _this.http.post(_this.global.login_URL, formValues).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    AuthService.prototype.verifyMobile = function (formData) {
+        var _this = this;
+        var formValues = JSON.stringify({ formData: formData });
+        return new Promise(function (resolve) {
+            _this.http.post(_this.global.verifymobile_URL, formValues).subscribe(function (data) {
                 resolve(data);
             }, function (err) {
                 console.log(err);
@@ -1498,6 +1530,7 @@ var GlobalconstantService = /** @class */ (function () {
         this.verifyotp_URL = this.APIURL + "mantratrainerAppService/verifyOTP";
         this.setloginpin_URL = this.APIURL + "mantratrainerAppService/setLoginPin";
         this.login_URL = this.APIURL + "mantratrainerAppService/verifyLogin";
+        this.verifymobile_URL = this.APIURL + "mantratrainerAppService/verifyMobile";
         /**
          * Master data Fetch
          */
@@ -1510,6 +1543,11 @@ var GlobalconstantService = /** @class */ (function () {
         this.assignexerciseToMember_URL = this.APIURL + "mantratrainerAppService/assignExerciseTomember";
         this.assignedMemberDetailByID_URL = this.APIURL + "mantratrainerAppService/assignedMemberDetailByID";
         this.stopAssignedExercise_URL = this.APIURL + "mantratrainerAppService/stopAssignedExercise";
+        /**
+         * @URL List for member target given module
+         */
+        this.weeklyNotAssignedTargetsMemberList = this.APIURL + "mantratrainerAppService/getweeklyNotAssignedTargetsMembersList";
+        this.assigncalorieTargetToMember_URL = this.APIURL + "mantratrainerAppService/assigncalorieTargetToMember";
     }
     GlobalconstantService.prototype.getApiURL = function () {
         return this.APIURL;
@@ -1653,6 +1691,33 @@ var HttpRequestHandlerService = /** @class */ (function () {
         var formValues = JSON.stringify({ formdata: formObj });
         return new Promise(function (resolve) {
             _this.http.post(_this.global.stopAssignedExercise_URL, formValues).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    /**
+     *@ HTTP Call For Member Target Given Module
+     *@date 24.05.2019
+     *@By Mithilesh
+     */
+    HttpRequestHandlerService.prototype.getWeeklyNotAssignedTargetsMemberList = function (value, page) {
+        var _this = this;
+        var formValues = JSON.stringify({ formdata: value, pageno: page });
+        return new Promise(function (resolve) {
+            _this.http.post(_this.global.weeklyNotAssignedTargetsMemberList, formValues).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    HttpRequestHandlerService.prototype.assignMemberCalorieTarget = function (formObj) {
+        var _this = this;
+        var formValues = JSON.stringify({ formdata: formObj });
+        return new Promise(function (resolve) {
+            _this.http.post(_this.global.assigncalorieTargetToMember_URL, formValues).subscribe(function (data) {
                 resolve(data);
             }, function (err) {
                 console.log(err);

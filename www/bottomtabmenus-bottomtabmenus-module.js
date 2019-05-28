@@ -76,7 +76,7 @@ var BottomtabmenusPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-tabs>\n  <ion-tab-bar slot=\"bottom\">\n\n    <ion-tab-button tab=\"tab1\">\n      <ion-icon name=\"sunny\"></ion-icon>\n      <ion-label>Tab1</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab2\">\n        <ion-icon name=\"sunny\"></ion-icon>\n        <ion-label>Tab2</ion-label>\n      </ion-tab-button>\n\n  </ion-tab-bar>\n</ion-tabs>"
+module.exports = "<ion-tabs>\r\n  <ion-tab-bar slot=\"bottom\">\r\n\r\n    <ion-tab-button tab=\"tab1\">\r\n      <ion-icon name=\"sunny\"></ion-icon>\r\n      <ion-label>Tab1</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab2\">\r\n        <ion-icon name=\"sunny\"></ion-icon>\r\n        <ion-label>Tab2</ion-label>\r\n      </ion-tab-button>\r\n\r\n  </ion-tab-bar>\r\n</ion-tabs>"
 
 /***/ }),
 

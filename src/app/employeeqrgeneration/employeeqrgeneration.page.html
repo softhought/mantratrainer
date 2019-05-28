@@ -1,0 +1,46 @@
+<ion-content no-padding>
+  <div id="employeeQRgenerationPage">
+
+      <h6>Employee Attendance </h6>
+      <form [formGroup]="emplMobileForm" >
+        <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Verify your mobile</ion-card-subtitle>
+           
+              
+            </ion-card-header>
+          
+            <ion-card-content>
+
+                <ion-item no-lines>
+                    <ion-input type="number" clearInput placeholder="" formControlName="emplMobileNo"></ion-input> 
+                </ion-item>
+
+                <ion-grid>
+                  <ion-row>
+                    <ion-col text-center>
+                      <ion-button (click)="verifyMbl()">Verify & Generate <ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row>
+                    <ion-col text-center>
+                     <p style="font-size: 11px;">Verify your mobile no and generate QR code for attendance.</p>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                
+
+            </ion-card-content>
+        </ion-card>
+      </form>
+
+     
+      <div id="qrSection" >
+          <ion-spinner name="crescent"></ion-spinner>
+        <qrcode *ngIf="employeeQRCode" [qrdata]="employeeQRCode" allowEmptyString="false" [size]="260" [level]="'M'"></qrcode>
+      </div>
+      <p id="qrscantxt">Scan QR Code</p>
+     
+  </div>
+</ion-content>

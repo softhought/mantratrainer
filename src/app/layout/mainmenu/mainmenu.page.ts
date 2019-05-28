@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { NavController } from '@ionic/angular';
-NavController
+
 
 @Component({
   selector: 'app-mainmenu',
@@ -23,7 +23,7 @@ export class MainmenuPage implements OnInit {
 
   selectedPath = '';
 
-  constructor(private router:Router,public navCtrl: NavController,) { 
+  constructor(private router:Router,public navCtrl: NavController) { 
     this.router.events.subscribe((event:RouterEvent) => {
       this.selectedPath = event.url;
     });

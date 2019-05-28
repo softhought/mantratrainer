@@ -1,0 +1,71 @@
+#employeeQRgenerationPage {
+    background: rgb(255, 99, 9);
+    height:100%;
+    padding-top:2%;
+
+    h6{
+        text-align: center;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: #9F3A00;
+        margin-bottom: 10%;
+    }
+
+    ion-card{
+        background: #FFF;
+        width: 85%;
+        margin: 0 auto;
+
+        ion-card-subtitle {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        ion-item{
+            width: 86%;
+            margin: 0 auto;
+            --background: transparent;
+          //  border: 1px solid #f8f8f8;
+         //   border-radius: 12px !important;
+         //   color: #FFF;
+             margin-bottom: 6px;
+             --border-width: 0 0 0px 0;
+             border: 1px solid #e7e7e7;
+             border-radius: 50px;
+        }
+
+        ion-button{
+            --background:rgb(255, 99, 9);
+        }
+    }
+
+    #qrSection{
+        width:260px;
+        height:260px;
+        margin:10% auto;
+        background: #FFF;
+        border:2px solid #FFF;
+        position: relative;
+        border-radius: 14px;
+
+        img{
+            border-radius: 8px;
+        }
+
+        ion-spinner{
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 43%;
+        }
+    }
+    #qrscantxt{
+        text-align: center;
+        margin-top: -35px;
+        font-size: 12px;
+        color: #FFF;
+    }
+}

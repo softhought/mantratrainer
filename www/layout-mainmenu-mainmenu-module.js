@@ -76,7 +76,7 @@ var MainmenuPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-split-pane>\n  <ion-menu contentId=\"content\">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Menu</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n      <ion-list>\n        <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of pages\">\n          <ion-item [routerLink]=\"p.url\" routerDirection=\"root\" [class.active-item]=\"selectedPath==p.url\">\n            {{p.title}}\n          </ion-item>\n        </ion-menu-toggle>\n      </ion-list>\n    </ion-content>\n\n  </ion-menu>\n\n  <ion-router-outlet id=\"content\" main></ion-router-outlet>\n</ion-split-pane>"
+module.exports = "<ion-split-pane>\r\n  <ion-menu contentId=\"content\">\r\n    <ion-header>\r\n      <ion-toolbar>\r\n        <ion-title>Menu</ion-title>\r\n      </ion-toolbar>\r\n    </ion-header>\r\n\r\n    <ion-content>\r\n      <ion-list>\r\n        <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of pages\">\r\n          <!-- <ion-item (click)=\"setRootPage()\" [routerLink]=\"p.url\" routerDirection=\"root\" [class.active-item]=\"selectedPath==p.url\">\r\n            {{p.title}}\r\n          </ion-item> -->\r\n\r\n          <ion-item (click)=\"setRootPage(p.url)\" routerDirection=\"root\" [class.active-item]=\"selectedPath==p.url\">\r\n            {{p.title}}\r\n          </ion-item>\r\n\r\n        </ion-menu-toggle>\r\n      </ion-list>\r\n    </ion-content>\r\n\r\n  </ion-menu>\r\n\r\n  <ion-router-outlet id=\"content\" main></ion-router-outlet>\r\n</ion-split-pane>"
 
 /***/ }),
 
@@ -104,13 +104,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
 
 
 
 var MainmenuPage = /** @class */ (function () {
-    function MainmenuPage(router) {
+    function MainmenuPage(router, navCtrl) {
         var _this = this;
         this.router = router;
+        this.navCtrl = navCtrl;
         this.pages = [
             {
                 title: 'Dashboard',
@@ -118,7 +121,7 @@ var MainmenuPage = /** @class */ (function () {
             },
             {
                 title: 'Calorie Assingment',
-                url: 'trainer/calorieassignment'
+                url: '/mainmenu/trainer/calorieassignment'
             },
         ];
         this.selectedPath = '';
@@ -131,13 +134,17 @@ var MainmenuPage = /** @class */ (function () {
         //   this.selectedPath = event.url;
         // });
     };
+    MainmenuPage.prototype.setRootPage = function (url) {
+        // this.router.navigateByUrl(url);
+        this.navCtrl.navigateRoot(url);
+    };
     MainmenuPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-mainmenu',
             template: __webpack_require__(/*! ./mainmenu.page.html */ "./src/app/layout/mainmenu/mainmenu.page.html"),
             styles: [__webpack_require__(/*! ./mainmenu.page.scss */ "./src/app/layout/mainmenu/mainmenu.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]])
     ], MainmenuPage);
     return MainmenuPage;
 }());
