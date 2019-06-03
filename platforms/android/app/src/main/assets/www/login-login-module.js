@@ -98,7 +98,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var LoginPage = /** @class */ (function () {
     function LoginPage(navCtrl, storage, _authservice, toastController) {
-        var _this = this;
         this.navCtrl = navCtrl;
         this.storage = storage;
         this._authservice = _authservice;
@@ -109,6 +108,9 @@ var LoginPage = /** @class */ (function () {
             loginPinCtrl: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
             regMbl: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required)
         });
+    }
+    LoginPage.prototype.ngOnInit = function () {
+        var _this = this;
         this.storage.get('registeredmobile').then(function (regmobile) {
             console.log("Registered Mobile No " + regmobile);
             console.log(regmobile);
@@ -117,8 +119,6 @@ var LoginPage = /** @class */ (function () {
                 regMbl: regmobile
             });
         });
-    }
-    LoginPage.prototype.ngOnInit = function () {
     };
     LoginPage.prototype.loginToDashboard = function () {
         var _this = this;

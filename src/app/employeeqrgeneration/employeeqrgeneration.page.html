@@ -17,9 +17,16 @@
                 </ion-item>
 
                 <ion-grid>
-                  <ion-row>
+                  <ion-row *ngIf="!isMobileNoVerified">
                     <ion-col text-center>
-                      <ion-button (click)="verifyMbl()">Verify & Generate <ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                        <ion-button *ngIf="isSubmitClicked"><ion-spinner name="crescent"></ion-spinner></ion-button>
+                      <ion-button (click)="verifyMbl()" *ngIf="!isSubmitClicked">Verify & Generate <ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row *ngIf="isMobileNoVerified">
+                    <ion-col text-center>
+                      <ion-button style="--background: rgb(0, 162, 36);">Verified <ion-icon name="checkmark-circle"></ion-icon> </ion-button>
                     </ion-col>
                   </ion-row>
 
@@ -36,9 +43,17 @@
       </form>
 
      
+
       <div id="qrSection" >
-          <ion-spinner name="crescent"></ion-spinner>
-        <qrcode *ngIf="employeeQRCode" [qrdata]="employeeQRCode" allowEmptyString="false" [size]="260" [level]="'M'"></qrcode>
+
+          <!-- <qrcode [qrdata]="'bjhbjhn jhkjh k'" [size]="110" [level]="'M'" ></qrcode> -->
+          <div *ngIf="isMobileNoVerified">
+            <qrcode [qrdata]="employeeQRCode" [size]="180" [level]="'M'" ></qrcode>
+          </div>
+
+
+          <ion-spinner *ngIf="isLoaderEnable" name="dots"></ion-spinner>
+        <!-- <qrcode *ngIf="!isLoaderEnable && employeeQRCode!=null" [qrdata]="employeeQRCode" colorlight="#ed5417" colordark="#FFF" allowEmptyString="false" [size]="110" [level]="'M'" [usesvg]="true"></qrcode> -->
       </div>
       <p id="qrscantxt">Scan QR Code</p>
      

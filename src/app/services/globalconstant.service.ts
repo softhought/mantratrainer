@@ -1,10 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import * as jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalconstantService {
+  decodedTokenData;
+  emplID;
+  designationID;
+  branchCode;
+  employeeName;
+  employeeDesig;
+
+
+
+
 
   constructor(private storage:Storage) { }
   
@@ -20,6 +31,7 @@ export class GlobalconstantService {
 
   //private APIURL =  "http://13.234.41.243/ehr/ehrsrvc/";
   //private APIURL = "http://127.0.0.1/Mantrapro/";
+
   private APIURL = "https://mantrahealthzone.co.in/";
   private APIKEY = "24ecdccb1258eaacfd441e012ac034392403c692";
 
@@ -56,6 +68,13 @@ export class GlobalconstantService {
    */
   public weeklyNotAssignedTargetsMemberList = this.APIURL+"mantratrainerAppService/getweeklyNotAssignedTargetsMembersList";
   public assigncalorieTargetToMember_URL = this.APIURL+"mantratrainerAppService/assigncalorieTargetToMember";
+  public weeklyAssignedTargetsMemberList = this.APIURL+"mantratrainerAppService/getweeklyAssignedTargetsMembersList";
+
+
+  /**
+   * @URL attendance given module
+   */
+  public captureAttendance_URL = this.APIURL+"mantratrainerAppService/captureAttendance";
 
 
 
@@ -80,5 +99,40 @@ export class GlobalconstantService {
     return token;
    // return localStorage.getItem("token");
   }
+
+
+
+  getDecodedAccessToken(token: string): any {
+    try{
+        return jwt_decode(token);
+    }
+    catch(Error){
+        return null;
+    }
+  }
+
+/*
+  getUserSessionData(){
+    let userSession = {};
+    this.storage.get('token').then((tokenValue) => {
+     this.decodedTokenData = this.getDecodedAccessToken(tokenValue);
+      this.emplID = this.decodedTokenData.data.empl_id;
+      this.designationID = this.decodedTokenData.data.desigID;
+      this.branchCode = this.decodedTokenData.data.branchCD;
+      this.employeeName = this.decodedTokenData.data.emplName;
+      this.employeeDesig = this.decodedTokenData.data.emplDesig;
+      
+     });
+     userSession = {
+      "emplID":this.emplID,
+      "designationID":this.designationID,
+      "branchCode":this.branchCode,
+      "employeeName":this.employeeName,
+      "employeeDesig":this.employeeDesig
+     };
+     return userSession;
+ 
+  }
+  */
 
 }

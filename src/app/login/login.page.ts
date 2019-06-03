@@ -24,7 +24,14 @@ export class LoginPage implements OnInit {
       regMbl: new FormControl('',Validators.required)
     });
 
-    this.storage.get('registeredmobile').then((regmobile) => {
+
+
+
+
+  }
+
+  ngOnInit() {
+        this.storage.get('registeredmobile').then((regmobile) => {
       console.log("Registered Mobile No " + regmobile);
       console.log(regmobile);
       this.registeredMobileNo = regmobile;
@@ -32,13 +39,6 @@ export class LoginPage implements OnInit {
         regMbl: regmobile
       });
     });
-
-
-
-  }
-
-  ngOnInit() {
-    
   }
 
 

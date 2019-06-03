@@ -28,11 +28,13 @@
                     </ion-menu-toggle>
                   </ion-buttons>
                   <ion-title>
-                   
+
+                   <!-- Temporary Closed ..
                     <div id="notification">
                       <span>15</span>
                       <ion-icon name="notifications-outline"></ion-icon>
                     </div>
+                    -->
 
                   </ion-title>
               </ion-toolbar>
@@ -44,8 +46,8 @@
                           <ion-img src="assets/layout/mantra_male_trainer.png"></ion-img>
                         </ion-avatar>
                         <ion-label>
-                             <h4>Mithilesh Routh</h4>
-                             <p>Gym Trainer</p>
+                             <h4>{{employeeName}}</h4>
+                             <p>{{employeeDesig}}</p>
                         </ion-label>
                     </ion-item>
                   </ion-list>
@@ -116,15 +118,15 @@
 
           <ion-row>
               <ion-col >
-                <div>
+                <div (click)="showQRCode()">
                     <img class="img-valign" src="assets/layout/qricon.png" />
-                    <p class="coltexttitle">Scanner</p>
+                    <p class="coltexttitle">QR Code</p>
                 </div>
               </ion-col>
               <ion-col >
-                <div>
-                    <img class="img-valign" src="assets/layout/studymaterail.png" />
-                    <p class="coltexttitle">Study Material</p>
+                <div routerLink= "/branchselection" style="outline : none;">
+                    <img class="img-valign" src="assets/layout/exercisetracker.png" />
+                    <p class="coltexttitle" >Exercise Tracker</p>
                 </div>
               </ion-col>
              
@@ -139,32 +141,15 @@
                   </div>
                 </ion-col>
                 <ion-col >
-                  <div routerLink= "/branchselection" style="outline : none;">
-                      <img class="img-valign" src="assets/layout/exercisetracker.png" />
-                      <p class="coltexttitle" >Exercise Tracker</p>
-                     
-                  </div>
+                    <div>
+                        <img class="img-valign" src="assets/layout/studymaterail.png" />
+                        <p class="coltexttitle">Study Material</p>
+                    </div>
                 </ion-col>
                
             </ion-row>
 
-            <ion-row>
-                <ion-col >
-                  <div>
-                      <img class="img-valign" src="assets/layout/onlineexam.png" />
-                      <p class="coltexttitle">Online Exam</p>
-                      
-                  </div>
-                </ion-col>
-                <ion-col >
-                  <div>
-                      <img class="img-valign" src="assets/layout/exercisetracker.png" />
-                      <p class="coltexttitle">Others</p>
-                     
-                  </div>
-                </ion-col>
-               
-            </ion-row>
+
 
             
 

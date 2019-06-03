@@ -36,6 +36,7 @@ export class AssignedmembertabPage implements OnInit , OnDestroy  {
   setIntervalIDs = [];
   totalNoOfIntervels:number = 0;
   isListDataAvailable:boolean = false;
+  noRecordsFound:boolean =false;
 
   private interval;
   noOfRecords = 0;
@@ -122,11 +123,18 @@ ionViewWillEnter() {
      this.todaysAssignedMemberList = response.RESULT;
 
      if(this.todaysAssignedMemberList.length > 0){
+       this.noRecordsFound = false;
        this.isListDataAvailable = true;
      }
-
-   }
+     
+    }
+    else if(response.STATUS==300 && response.STATUS_MSG=="NOT_FOUND"){
+      this.noRecordsFound = true;
+      this.isListDataAvailable = true;
+      this.presentToastWithOptions('No records found...','bottom');
+    }
     else{
+      this.isListDataAvailable = true;
       this.presentToastWithOptions('Some Problem.Please try again later...','bottom');
     }
   

@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+            <ion-icon name="menu"></ion-icon>
+            <!-- <ion-img src="assets/layout/menu.svg"></ion-img> -->
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+
+<ion-content no-padding>
+  <div id="calorieAssingnedListPage">
+
+
+    <div *ngIf="isDataAvailable">
+      <ion-card [@slideInOut] *ngFor="let memberlist of weeklyAssignedTargetsMemberList ; let x = index" style="background:linear-gradient(rgba(255,49,12, 0.8), rgba(255,49,12,0.90)), url('https://image.freepik.com/free-vector/sport_48369-7051.jpg');  background-size: cover;">
+          <ion-card-content>
+            <ion-row >
+              <ion-col size="3">
+                <img src="https://www.mantrahealthzone.co.in/images/team_mantra/793940_234_5271avirup%20chowdhury.jpg" />
+              </ion-col>
+              <ion-col size="9">
+                <h4>{{memberlist.MEMBERSHIP_NO}}</h4>
+                <h5>{{memberlist.CUS_NAME}}</h5>
+                <p>{{memberlist.CUS_BRANCH}},{{memberlist.CUS_CARD}},{{memberlist.CUS_SEX}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+      </ion-card>
+    </div>
+
+
+    <!-- No Data Found Start -->
+      <ion-card *ngIf="noRecordsFound">
+        <ion-card-header text-center>
+          <ion-card-subtitle>No records found</ion-card-subtitle>
+         
+        </ion-card-header>
+      
+        <ion-card-content>
+          <img src="assets/layout/no_data.svg" />
+        </ion-card-content>
+      </ion-card>
+    <!-- No Data Found Start -->
+
+
+    <!-- Skeleton Loader Start -->
+       
+          <div *ngIf="!isDataAvailable">
+              <ion-card  *ngFor="let dummy of ' '.repeat(10).split(''), let x = index" >
+                <ion-card-content>
+                  <ion-row >
+                    <ion-col size="3">
+                      <ion-skeleton-text animated class="text-shell"></ion-skeleton-text>
+                    </ion-col>
+                    <ion-col size="9">
+                      <h4><ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 60%"></ion-skeleton-text></h4>
+                      <h5><ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 75%"></ion-skeleton-text></h5>
+                      <p>   <ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 20%"></ion-skeleton-text>,   <ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 20%"></ion-skeleton-text>,<ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 30%"></ion-skeleton-text></p>
+        
+                      <ion-item lines="none">
+                        <ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 80%"></ion-skeleton-text>
+                        <ion-skeleton-text animated="true" class="text-shell gradient-animation" style="width: 10%"></ion-skeleton-text>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-content>
+             </ion-card>
+            </div>
+        
+    <!-- Skeleton Loader End -->
+
+
+
+  </div><!-- End of calorieAssingnedListPage-->
+
+</ion-content>

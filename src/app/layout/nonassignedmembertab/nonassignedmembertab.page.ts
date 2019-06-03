@@ -23,6 +23,7 @@ export class NonassignedmembertabPage implements OnInit {
 
   serviceData:string="";
   isListDataAvailable:boolean = false;
+  noRecordsFound:boolean = false;
 
   constructor(private _httpReqHandler:HttpRequestHandlerService,private navCtrl :NavController,public toastController: ToastController,private router:Router,private _dataShareService:DataShareService) { 
   
@@ -56,12 +57,15 @@ export class NonassignedmembertabPage implements OnInit {
         this.isListDataAvailable = true;
       }
 
-      console.log("todaysMemberList List");
-      console.log(this.todaysMemberList);
-      console.log("todaysMemberList List End");
 
     }
+    else if(response.STATUS==300 && response.STATUS_MSG=="NOT_FOUND"){
+      this.noRecordsFound = true;
+      this.isListDataAvailable = true;
+      this.presentToastWithOptions('No records found...','bottom');
+    }
     else{
+      this.isListDataAvailable = true;
       this.presentToastWithOptions('Some Problem.Please try again later...','bottom');
     }
   
@@ -84,9 +88,8 @@ export class NonassignedmembertabPage implements OnInit {
       let response;
       this._httpReqHandler.getTodaysMemberList(this.selectedBranch,this.page).then(data => {
       response = data;
-  
-        console.log(response.RESULT);
-        console.log("Length is "+ response.RESULT.length);
+      if(response.STATUS==200 && response.STATUS_MSG=="SUCCESS"){
+       
         
         //this.todaysMemberList.push(response.RESULT[0]);
          for(let i=0; i<response.RESULT.length; i++) {
@@ -96,6 +99,18 @@ export class NonassignedmembertabPage implements OnInit {
          if(response.RESULT.length > 0) {
           this.isListDataAvailable = true;
         }
+      }
+      else if(response.STATUS==300 && response.STATUS_MSG=="NOT_FOUND"){
+        this.noRecordsFound = true;
+        this.isListDataAvailable = true;
+        this.presentToastWithOptions('No records found...','bottom');
+      }
+      else{
+        this.isListDataAvailable = true;
+        this.presentToastWithOptions('Some Problem.Please try again later...','bottom');
+      }
+    
+        
   
   
       },

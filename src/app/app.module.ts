@@ -31,6 +31,9 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { QRCodeModule } from 'angularx-qrcode';
 
+
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

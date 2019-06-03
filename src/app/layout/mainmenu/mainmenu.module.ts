@@ -27,6 +27,10 @@ const routes: Routes = [
       loadChildren: '../membercalorietargetassignmentlist/membercalorietargetassignmentlist.module#MembercalorietargetassignmentlistPageModule' 
      },
      {
+      path: 'trainer/assignedcaloriememberlist',
+      loadChildren: '../assignedcaloriememberlist/assignedcaloriememberlist.module#AssignedcaloriememberlistPageModule' 
+     },
+     {
         path:'',
         redirectTo:'/mainmenu/dashboard'
      }

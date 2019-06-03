@@ -180,7 +180,7 @@ var RegisterPage = /** @class */ (function () {
         this._authservice.setloginPin(this.emplMobileForm.value, this.emplMobileOTPForm.value, this.emplsetPinForm.value).then(function (data) {
             response = data;
             if (response.STATUS == 200 && response.STATUS_MSG == "SUCCESS") {
-                _this.storage.clear();
+                _this.storage.remove('registeredmobile');
                 var mblno_1 = _this.emplMobileForm.get('emplMobileNo').value;
                 _this.storage.set('registeredmobile', mblno_1);
                 _this.navCtrl.navigateForward('login');

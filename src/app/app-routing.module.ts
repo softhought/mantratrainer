@@ -22,7 +22,10 @@ const routes: Routes = [
   { path: 'choose-exercise', loadChildren: './layout/exerciseselection/exerciseselection.module#ExerciseselectionPageModule' },
   { path: 'memberassignment-profile', loadChildren: './layout/member_detail_assingment_layout/memberassignment-profile/memberassignment-profile.module#MemberassignmentProfilePageModule' },
   { path: 'roleoptionmainview', loadChildren: './roleoptionmainview/roleoptionmainview.module#RoleoptionmainviewPageModule' },
-  { path: 'choosecategory', loadChildren: './memberemployeeqrlayout/memberemployeeqrlayout.module#MemberemployeeqrlayoutPageModule' },  { path: 'employeeqrgeneration', loadChildren: './employeeqrgeneration/employeeqrgeneration.module#EmployeeqrgenerationPageModule' },
+  { path: 'choosecategory', loadChildren: './memberemployeeqrlayout/memberemployeeqrlayout.module#MemberemployeeqrlayoutPageModule' },
+  { path: 'employeeqrgeneration', loadChildren: './employeeqrgeneration/employeeqrgeneration.module#EmployeeqrgenerationPageModule' },
+  { path: 'trainergenerateqrcode', loadChildren: './layout/trainergenerateqrcode/trainergenerateqrcode.module#TrainergenerateqrcodePageModule' },
+  //{ path: 'assignedcaloriememberlist', loadChildren: './layout/assignedcaloriememberlist/assignedcaloriememberlist.module#AssignedcaloriememberlistPageModule' },
 
 
 

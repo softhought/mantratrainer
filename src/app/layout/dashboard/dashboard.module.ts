@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { DashboardPage } from './dashboard.page';
 import { AppMaterialModule } from 'src/app/app-material/app-material.module';
-
+import { TrainergenerateqrcodePage } from '../trainergenerateqrcode/trainergenerateqrcode.page';
+import { QRCodeModule } from 'angularx-qrcode';
 
 const routes: Routes = [
   {
@@ -22,8 +23,10 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     AppMaterialModule,
+    QRCodeModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DashboardPage]
+  declarations: [DashboardPage,TrainergenerateqrcodePage],
+  entryComponents:[TrainergenerateqrcodePage]
 })
 export class DashboardPageModule {}

@@ -24,7 +24,7 @@ export class RoleoptionmainviewPage implements OnInit {
       this.router.navigateByUrl('employeeqrgeneration');
     }
     else if(tag=="TRAINER"){
-      this.router.navigateByUrl('register');
+      this.router.navigateByUrl('login');
     }
     else{
       // For Help

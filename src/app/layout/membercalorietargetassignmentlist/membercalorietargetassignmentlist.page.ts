@@ -30,6 +30,7 @@ export class MembercalorietargetassignmentlistPage implements OnInit {
   totalData = 0;
   totalPage = 0;
   isDataAvailable = false;
+  noRecordsFound:boolean = false;
 
   constructor(private _httpRequestHandlerService:HttpRequestHandlerService,public toastController: ToastController,fb: FormBuilder) { 
     this.calorieAssingmentFormGroup = fb.group({
@@ -60,15 +61,20 @@ export class MembercalorietargetassignmentlistPage implements OnInit {
         this.isDataAvailable = true;
       }
    }
-    else{
+   else if(response.STATUS==300 && response.STATUS_MSG=="NOT_FOUND"){
+    this.noRecordsFound = true;
+    this.isDataAvailable = true;
+    this.presentToastWithOptions('No records found...','bottom');
+  }
+  else{
       this.presentToastWithOptions('Some Problem.Please try again later...','bottom');
-    }
+  }
   
 
   },
     error => {
       console.log(error);
-        console.log("Error on login");
+        console.log("Error on calorie assingment");
     });
 
   }

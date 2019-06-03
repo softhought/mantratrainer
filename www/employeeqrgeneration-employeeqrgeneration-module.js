@@ -62,7 +62,7 @@ var EmployeeqrgenerationPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content no-padding>\n  <div id=\"employeeQRgenerationPage\">\n\n      <h6>Employee Attendance </h6>\n      <form [formGroup]=\"emplMobileForm\" >\n        <ion-card>\n            <ion-card-header>\n              <ion-card-subtitle>Verify your mobile</ion-card-subtitle>\n           \n              \n            </ion-card-header>\n          \n            <ion-card-content>\n\n                <ion-item no-lines>\n                    <ion-input type=\"number\" clearInput placeholder=\"\" formControlName=\"emplMobileNo\"></ion-input> \n                </ion-item>\n\n                <ion-grid>\n                  <ion-row>\n                    <ion-col text-center>\n                      <ion-button (click)=\"verifyMbl()\">Verify & Generate <ion-icon name=\"arrow-round-forward\"></ion-icon></ion-button>\n                    </ion-col>\n                  </ion-row>\n\n                  <ion-row>\n                    <ion-col text-center>\n                     <p style=\"font-size: 11px;\">Verify your mobile no and generate QR code for attendance.</p>\n                    </ion-col>\n                  </ion-row>\n                </ion-grid>\n                \n\n            </ion-card-content>\n        </ion-card>\n      </form>\n\n     \n      <div id=\"qrSection\" >\n          <ion-spinner name=\"crescent\"></ion-spinner>\n        <qrcode *ngIf=\"employeeQRCode\" [qrdata]=\"employeeQRCode\" allowEmptyString=\"false\" [size]=\"260\" [level]=\"'M'\"></qrcode>\n      </div>\n      <p id=\"qrscantxt\">Scan QR Code</p>\n     \n  </div>\n</ion-content>\n"
+module.exports = "<ion-content no-padding>\n  <div id=\"employeeQRgenerationPage\">\n\n      <h6>Employee Attendance </h6>\n      <form [formGroup]=\"emplMobileForm\" >\n        <ion-card>\n            <ion-card-header>\n              <ion-card-subtitle>Verify your mobile</ion-card-subtitle>\n           \n              \n            </ion-card-header>\n          \n            <ion-card-content>\n\n                <ion-item no-lines>\n                    <ion-input type=\"number\" clearInput placeholder=\"\" formControlName=\"emplMobileNo\"></ion-input> \n                </ion-item>\n\n                <ion-grid>\n                  <ion-row *ngIf=\"!isMobileNoVerified\">\n                    <ion-col text-center>\n                        <ion-button *ngIf=\"isSubmitClicked\"><ion-spinner name=\"crescent\"></ion-spinner></ion-button>\n                      <ion-button (click)=\"verifyMbl()\" *ngIf=\"!isSubmitClicked\">Verify & Generate <ion-icon name=\"arrow-round-forward\"></ion-icon></ion-button>\n                    </ion-col>\n                  </ion-row>\n\n                  <ion-row *ngIf=\"isMobileNoVerified\">\n                    <ion-col text-center>\n                      <ion-button style=\"--background: rgb(0, 162, 36);\">Verified <ion-icon name=\"checkmark-circle\"></ion-icon> </ion-button>\n                    </ion-col>\n                  </ion-row>\n\n                  <ion-row>\n                    <ion-col text-center>\n                     <p style=\"font-size: 11px;\">Verify your mobile no and generate QR code for attendance.</p>\n                    </ion-col>\n                  </ion-row>\n                </ion-grid>\n                \n\n            </ion-card-content>\n        </ion-card>\n      </form>\n\n     \n\n      <div id=\"qrSection\" >\n\n          <!-- <qrcode [qrdata]=\"'bjhbjhn jhkjh k'\" [size]=\"110\" [level]=\"'M'\" ></qrcode> -->\n          <div *ngIf=\"isMobileNoVerified\">\n            <qrcode [qrdata]=\"employeeQRCode\" [size]=\"180\" [level]=\"'M'\" ></qrcode>\n          </div>\n\n\n          <ion-spinner *ngIf=\"isLoaderEnable\" name=\"dots\"></ion-spinner>\n        <!-- <qrcode *ngIf=\"!isLoaderEnable && employeeQRCode!=null\" [qrdata]=\"employeeQRCode\" colorlight=\"#ed5417\" colordark=\"#FFF\" allowEmptyString=\"false\" [size]=\"110\" [level]=\"'M'\" [usesvg]=\"true\"></qrcode> -->\n      </div>\n      <p id=\"qrscantxt\">Scan QR Code</p>\n     \n  </div>\n</ion-content>\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ion-content no-padding>\n  <div id=\"employeeQRgenerationPage
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#employeeQRgenerationPage {\n  background: #ff6309;\n  height: 100%;\n  padding-top: 2%; }\n  #employeeQRgenerationPage h6 {\n    text-align: center;\n    font-size: 1.2rem;\n    text-transform: uppercase;\n    color: #9F3A00;\n    margin-bottom: 10%; }\n  #employeeQRgenerationPage ion-card {\n    background: #FFF;\n    width: 85%;\n    margin: 0 auto; }\n  #employeeQRgenerationPage ion-card ion-card-subtitle {\n      text-align: center;\n      text-transform: uppercase;\n      letter-spacing: 2px;\n      font-weight: 600; }\n  #employeeQRgenerationPage ion-card ion-item {\n      width: 86%;\n      margin: 0 auto;\n      --background: transparent;\n      margin-bottom: 6px;\n      --border-width: 0 0 0px 0;\n      border: 1px solid #e7e7e7;\n      border-radius: 50px; }\n  #employeeQRgenerationPage ion-card ion-button {\n      --background:rgb(255, 99, 9); }\n  #employeeQRgenerationPage #qrSection {\n    width: 260px;\n    height: 260px;\n    margin: 10% auto;\n    background: #FFF;\n    border: 2px solid #FFF;\n    position: relative;\n    border-radius: 14px; }\n  #employeeQRgenerationPage #qrSection img {\n      border-radius: 8px; }\n  #employeeQRgenerationPage #qrSection ion-spinner {\n      position: absolute;\n      left: 0;\n      right: 0;\n      margin: auto;\n      top: 43%; }\n  #employeeQRgenerationPage #qrscantxt {\n    text-align: center;\n    margin-top: -35px;\n    font-size: 12px;\n    color: #FFF; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZW1wbG95ZWVxcmdlbmVyYXRpb24vRDpcXEFwcERldmVsb3BtZW50XFxNYW50cmFBcHBcXG1hbnRyYXRyYWluZXIvc3JjXFxhcHBcXGVtcGxveWVlcXJnZW5lcmF0aW9uXFxlbXBsb3llZXFyZ2VuZXJhdGlvbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBMkI7RUFDM0IsWUFBVztFQUNYLGVBQWMsRUFBQTtFQUhsQjtJQU1RLGtCQUFrQjtJQUNsQixpQkFBaUI7SUFDakIseUJBQXlCO0lBQ3pCLGNBQWM7SUFDZCxrQkFBa0IsRUFBQTtFQVYxQjtJQWNRLGdCQUFnQjtJQUNoQixVQUFVO0lBQ1YsY0FBYyxFQUFBO0VBaEJ0QjtNQW1CWSxrQkFBa0I7TUFDbEIseUJBQXlCO01BQ3pCLG1CQUFtQjtNQUNuQixnQkFBZ0IsRUFBQTtFQXRCNUI7TUEwQlksVUFBVTtNQUNWLGNBQWM7TUFDZCx5QkFBYTtNQUlaLGtCQUFrQjtNQUNsQix5QkFBZTtNQUNmLHlCQUF5QjtNQUN6QixtQkFBbUIsRUFBQTtFQW5DaEM7TUF1Q1ksNEJBQWEsRUFBQTtFQXZDekI7SUE0Q1EsWUFBVztJQUNYLGFBQVk7SUFDWixnQkFBZTtJQUNmLGdCQUFnQjtJQUNoQixzQkFBcUI7SUFDckIsa0JBQWtCO0lBQ2xCLG1CQUFtQixFQUFBO0VBbEQzQjtNQXFEWSxrQkFBa0IsRUFBQTtFQXJEOUI7TUF5RFksa0JBQWtCO01BQ2xCLE9BQU87TUFDUCxRQUFRO01BQ1IsWUFBWTtNQUNaLFFBQVEsRUFBQTtFQTdEcEI7SUFpRVEsa0JBQWtCO0lBQ2xCLGlCQUFpQjtJQUNqQixlQUFlO0lBQ2YsV0FBVyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvZW1wbG95ZWVxcmdlbmVyYXRpb24vZW1wbG95ZWVxcmdlbmVyYXRpb24ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2VtcGxveWVlUVJnZW5lcmF0aW9uUGFnZSB7XHJcbiAgICBiYWNrZ3JvdW5kOiByZ2IoMjU1LCA5OSwgOSk7XHJcbiAgICBoZWlnaHQ6MTAwJTtcclxuICAgIHBhZGRpbmctdG9wOjIlO1xyXG5cclxuICAgIGg2e1xyXG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgICAgICBmb250LXNpemU6IDEuMnJlbTtcclxuICAgICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gICAgICAgIGNvbG9yOiAjOUYzQTAwO1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDEwJTtcclxuICAgIH1cclxuXHJcbiAgICBpb24tY2FyZHtcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjRkZGO1xyXG4gICAgICAgIHdpZHRoOiA4NSU7XHJcbiAgICAgICAgbWFyZ2luOiAwIGF1dG87XHJcblxyXG4gICAgICAgIGlvbi1jYXJkLXN1YnRpdGxlIHtcclxuICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgICAgICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gICAgICAgICAgICBsZXR0ZXItc3BhY2luZzogMnB4O1xyXG4gICAgICAgICAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgaW9uLWl0ZW17XHJcbiAgICAgICAgICAgIHdpZHRoOiA4NiU7XHJcbiAgICAgICAgICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgICAgICAgICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gICAgICAgICAgLy8gIGJvcmRlcjogMXB4IHNvbGlkICNmOGY4Zjg7XHJcbiAgICAgICAgIC8vICAgYm9yZGVyLXJhZGl1czogMTJweCAhaW1wb3J0YW50O1xyXG4gICAgICAgICAvLyAgIGNvbG9yOiAjRkZGO1xyXG4gICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogNnB4O1xyXG4gICAgICAgICAgICAgLS1ib3JkZXItd2lkdGg6IDAgMCAwcHggMDtcclxuICAgICAgICAgICAgIGJvcmRlcjogMXB4IHNvbGlkICNlN2U3ZTc7XHJcbiAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1MHB4O1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgaW9uLWJ1dHRvbntcclxuICAgICAgICAgICAgLS1iYWNrZ3JvdW5kOnJnYigyNTUsIDk5LCA5KTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcblxyXG4gICAgI3FyU2VjdGlvbntcclxuICAgICAgICB3aWR0aDoyNjBweDtcclxuICAgICAgICBoZWlnaHQ6MjYwcHg7XHJcbiAgICAgICAgbWFyZ2luOjEwJSBhdXRvO1xyXG4gICAgICAgIGJhY2tncm91bmQ6ICNGRkY7XHJcbiAgICAgICAgYm9yZGVyOjJweCBzb2xpZCAjRkZGO1xyXG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiAxNHB4O1xyXG5cclxuICAgICAgICBpbWd7XHJcbiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDhweDtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIGlvbi1zcGlubmVye1xyXG4gICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgICAgICAgIGxlZnQ6IDA7XHJcbiAgICAgICAgICAgIHJpZ2h0OiAwO1xyXG4gICAgICAgICAgICBtYXJnaW46IGF1dG87XHJcbiAgICAgICAgICAgIHRvcDogNDMlO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxuICAgICNxcnNjYW50eHR7XHJcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgICAgIG1hcmdpbi10b3A6IC0zNXB4O1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgICAgICBjb2xvcjogI0ZGRjtcclxuICAgIH1cclxufSJdfQ== */"
+module.exports = "#employeeQRgenerationPage {\n  background: #ff6309;\n  height: 100%;\n  padding-top: 3rem; }\n  #employeeQRgenerationPage h6 {\n    text-align: center;\n    font-size: 1.2rem;\n    text-transform: uppercase;\n    color: #9F3A00;\n    margin-bottom: 5%; }\n  #employeeQRgenerationPage ion-card {\n    background: #FFF;\n    width: 85%;\n    margin: 0 auto; }\n  #employeeQRgenerationPage ion-card ion-card-subtitle {\n      text-align: center;\n      text-transform: uppercase;\n      letter-spacing: 2px;\n      font-weight: 600; }\n  #employeeQRgenerationPage ion-card ion-item {\n      width: 86%;\n      margin: 0 auto;\n      --background: transparent;\n      margin-bottom: 6px;\n      --border-width: 0 0 0px 0;\n      border: 1px solid #e7e7e7;\n      border-radius: 50px; }\n  #employeeQRgenerationPage ion-card ion-button {\n      --background:rgb(255, 99, 9); }\n  #employeeQRgenerationPage #qrSection {\n    width: 190px;\n    height: 190px;\n    margin: 10% auto;\n    background: #FFF;\n    border: 2px solid #FFF;\n    position: relative;\n    padding: 2%; }\n  #employeeQRgenerationPage #qrSection qrcode img {\n      border-radius: 8px !important; }\n  #employeeQRgenerationPage #qrSection ion-spinner {\n      position: absolute;\n      left: 0;\n      right: 0;\n      margin: auto;\n      top: 43%; }\n  #employeeQRgenerationPage #qrscantxt {\n    text-align: center;\n    margin-top: -35px;\n    font-size: 12px;\n    color: #FFF; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZW1wbG95ZWVxcmdlbmVyYXRpb24vRDpcXEFwcERldmVsb3BtZW50XFxNYW50cmFBcHBcXG1hbnRyYXRyYWluZXIvc3JjXFxhcHBcXGVtcGxveWVlcXJnZW5lcmF0aW9uXFxlbXBsb3llZXFyZ2VuZXJhdGlvbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBMkI7RUFDM0IsWUFBVztFQUNYLGlCQUFnQixFQUFBO0VBSHBCO0lBTVEsa0JBQWtCO0lBQ2xCLGlCQUFpQjtJQUNqQix5QkFBeUI7SUFDekIsY0FBYztJQUNkLGlCQUFpQixFQUFBO0VBVnpCO0lBY1EsZ0JBQWdCO0lBQ2hCLFVBQVU7SUFDVixjQUFjLEVBQUE7RUFoQnRCO01BbUJZLGtCQUFrQjtNQUNsQix5QkFBeUI7TUFDekIsbUJBQW1CO01BQ25CLGdCQUFnQixFQUFBO0VBdEI1QjtNQTBCWSxVQUFVO01BQ1YsY0FBYztNQUNkLHlCQUFhO01BSVosa0JBQWtCO01BQ2xCLHlCQUFlO01BQ2YseUJBQXlCO01BQ3pCLG1CQUFtQixFQUFBO0VBbkNoQztNQXVDWSw0QkFBYSxFQUFBO0VBdkN6QjtJQTRDUSxZQUFXO0lBQ1gsYUFBWTtJQUNaLGdCQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLHNCQUFxQjtJQUNyQixrQkFBa0I7SUFFbEIsV0FBVyxFQUFBO0VBbkRuQjtNQXVEZ0IsNkJBQTZCLEVBQUE7RUF2RDdDO01BNkRZLGtCQUFrQjtNQUNsQixPQUFPO01BQ1AsUUFBUTtNQUNSLFlBQVk7TUFDWixRQUFRLEVBQUE7RUFqRXBCO0lBcUVRLGtCQUFrQjtJQUNsQixpQkFBaUI7SUFDakIsZUFBZTtJQUNmLFdBQVcsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2VtcGxveWVlcXJnZW5lcmF0aW9uL2VtcGxveWVlcXJnZW5lcmF0aW9uLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNlbXBsb3llZVFSZ2VuZXJhdGlvblBhZ2Uge1xyXG4gICAgYmFja2dyb3VuZDogcmdiKDI1NSwgOTksIDkpO1xyXG4gICAgaGVpZ2h0OjEwMCU7XHJcbiAgICBwYWRkaW5nLXRvcDozcmVtO1xyXG5cclxuICAgIGg2e1xyXG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgICAgICBmb250LXNpemU6IDEuMnJlbTtcclxuICAgICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gICAgICAgIGNvbG9yOiAjOUYzQTAwO1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDUlO1xyXG4gICAgfVxyXG5cclxuICAgIGlvbi1jYXJke1xyXG4gICAgICAgIGJhY2tncm91bmQ6ICNGRkY7XHJcbiAgICAgICAgd2lkdGg6IDg1JTtcclxuICAgICAgICBtYXJnaW46IDAgYXV0bztcclxuXHJcbiAgICAgICAgaW9uLWNhcmQtc3VidGl0bGUge1xyXG4gICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICAgICAgICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgICAgICAgICAgIGxldHRlci1zcGFjaW5nOiAycHg7XHJcbiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICBpb24taXRlbXtcclxuICAgICAgICAgICAgd2lkdGg6IDg2JTtcclxuICAgICAgICAgICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICAgICAgICAgIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbiAgICAgICAgICAvLyAgYm9yZGVyOiAxcHggc29saWQgI2Y4ZjhmODtcclxuICAgICAgICAgLy8gICBib3JkZXItcmFkaXVzOiAxMnB4ICFpbXBvcnRhbnQ7XHJcbiAgICAgICAgIC8vICAgY29sb3I6ICNGRkY7XHJcbiAgICAgICAgICAgICBtYXJnaW4tYm90dG9tOiA2cHg7XHJcbiAgICAgICAgICAgICAtLWJvcmRlci13aWR0aDogMCAwIDBweCAwO1xyXG4gICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2U3ZTdlNztcclxuICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICBpb24tYnV0dG9ue1xyXG4gICAgICAgICAgICAtLWJhY2tncm91bmQ6cmdiKDI1NSwgOTksIDkpO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxuXHJcbiAgICAjcXJTZWN0aW9ue1xyXG4gICAgICAgIHdpZHRoOjE5MHB4O1xyXG4gICAgICAgIGhlaWdodDoxOTBweDtcclxuICAgICAgICBtYXJnaW46MTAlIGF1dG87XHJcbiAgICAgICAgYmFja2dyb3VuZDogI0ZGRjtcclxuICAgICAgICBib3JkZXI6MnB4IHNvbGlkICNGRkY7XHJcbiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgICAgIC8vYm9yZGVyLXJhZGl1czogMTRweDtcclxuICAgICAgICBwYWRkaW5nOiAyJTtcclxuXHJcbiAgICAgICAgcXJjb2Rle1xyXG4gICAgICAgICAgICBpbWd7XHJcbiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA4cHggIWltcG9ydGFudDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgICAgICBcclxuXHJcbiAgICAgICAgaW9uLXNwaW5uZXJ7XHJcbiAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgICAgICAgbGVmdDogMDtcclxuICAgICAgICAgICAgcmlnaHQ6IDA7XHJcbiAgICAgICAgICAgIG1hcmdpbjogYXV0bztcclxuICAgICAgICAgICAgdG9wOiA0MyU7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG4gICAgI3Fyc2NhbnR4dHtcclxuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICAgICAgbWFyZ2luLXRvcDogLTM1cHg7XHJcbiAgICAgICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgICAgIGNvbG9yOiAjRkZGO1xyXG4gICAgfVxyXG59Il19 */"
 
 /***/ }),
 
@@ -101,48 +101,78 @@ __webpack_require__.r(__webpack_exports__);
 
 var EmployeeqrgenerationPage = /** @class */ (function () {
     function EmployeeqrgenerationPage(_authservice, toastController, storage) {
-        var _this = this;
         this._authservice = _authservice;
         this.toastController = toastController;
         this.storage = storage;
-        this.isdLoaderEnable = false;
+        //isdLoaderEnable = false;
+        this.isLoaderEnable = true;
+        this.employeeMbl = null;
         this.employeeQRCode = null;
+        this.isMobileNoVerified = false;
+        this.isSubmitClicked = false;
         this.emplMobileForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             emplMobileNo: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
         });
-        storage.get('employeemobile').then(function (employeemobile) {
-            _this.employeeMbl = employeemobile;
-        });
     }
     EmployeeqrgenerationPage.prototype.ngOnInit = function () {
+        var _this = this;
+        // this.emplMobileForm.get('emplMobileNo').enable();
+        this.storage.get('employeemobile').then(function (mbl) {
+            console.log("NgOnInit Console :: " + mbl);
+            _this.employeeMbl = mbl;
+            if (_this.employeeMbl == null) {
+                _this.emplMobileForm.get('emplMobileNo').enable();
+                _this.isMobileNoVerified = false;
+                _this.employeeQRCode = "";
+            }
+            else {
+                _this.employeeQRCode = "" + _this.employeeMbl; //because no is not working for qr code 
+                console.log("this.employeeQRCode " + _this.employeeQRCode);
+                _this.isLoaderEnable = false;
+                _this.emplMobileForm.patchValue({
+                    'emplMobileNo': _this.employeeMbl
+                });
+                _this.emplMobileForm.get('emplMobileNo').disable();
+                _this.isMobileNoVerified = true;
+            }
+        });
     };
     EmployeeqrgenerationPage.prototype.verifyMbl = function () {
         var _this = this;
-        alert("Mobile " + this.employeeMbl);
-        this.isdLoaderEnable = true;
+        this.isSubmitClicked = true;
+        this.isLoaderEnable = true;
         if (this.emplMobileForm.get('emplMobileNo').value != "") {
             var response_1;
             this._authservice.verifyMobile(this.emplMobileForm.value).then(function (data) {
                 response_1 = data;
-                _this.isdLoaderEnable = false;
+                _this.isLoaderEnable = false;
                 if (response_1.STATUS == 200 && response_1.STATUS_MSG == "SUCCESS") {
-                    _this.employeeQRCode = _this.emplMobileForm.get('emplMobileNo').value;
+                    _this.isLoaderEnable = false;
+                    _this.employeeQRCode = "" + _this.emplMobileForm.get('emplMobileNo').value;
                     _this.storage.set("employeemobile", _this.emplMobileForm.get('emplMobileNo').value);
+                    _this.isMobileNoVerified = true;
+                    _this.isSubmitClicked = false;
                 }
                 else if (response_1.STATUS == 300 && response_1.STATUS_MSG == "NOT_FOUND") {
+                    _this.employeeQRCode = null;
+                    _this.isSubmitClicked = false;
                     _this.presentToastWithOptions('Mobile no is not registered', 'bottom');
                 }
                 else {
+                    _this.employeeQRCode = null;
+                    _this.isSubmitClicked = false;
                     _this.presentToastWithOptions('Some Problem.Please try again later...', 'bottom');
                 }
             }, function (error) {
                 console.log(error);
-                console.log("Error on sending otp");
+                console.log("Error on qr scanner display");
+                _this.isSubmitClicked = false;
             });
         }
         else {
+            this.employeeQRCode = null;
             this.presentToastWithOptions('Please enter mobile number', 'bottom');
-            this.isdLoaderEnable = false;
+            this.isSubmitClicked = false;
         }
     };
     EmployeeqrgenerationPage.prototype.presentToastWithOptions = function (msg, pos) {

@@ -7,17 +7,21 @@
     </ion-header>
 
     <ion-content>
-      <ion-list>
+      <ion-list lines="none">
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
           <!-- <ion-item (click)="setRootPage()" [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath==p.url">
             {{p.title}}
           </ion-item> -->
-
           <ion-item (click)="setRootPage(p.url)" routerDirection="root" [class.active-item]="selectedPath==p.url">
             {{p.title}}
           </ion-item>
-
         </ion-menu-toggle>
+
+        <ion-item-divider color="default">
+          <!-- <ion-label>Other</ion-label> -->
+        </ion-item-divider>
+
+        <ion-item (click)="logout()">Logout</ion-item>
       </ion-list>
     </ion-content>
 

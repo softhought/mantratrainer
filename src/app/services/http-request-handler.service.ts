@@ -143,4 +143,30 @@ export class HttpRequestHandlerService {
  }
 
 
+ captureAttendance(formObj){
+  let formValues = JSON.stringify({formdata:formObj});
+  return new Promise(resolve => {
+   this.http.post(this.global.captureAttendance_URL,formValues).subscribe(data => {
+     resolve(data);
+   }, err => {
+     console.log(err);
+   });
+ });
+}
+
+
+
+
+getWeeklyAssignedTargetsMemberList(value,page){
+  let formValues = JSON.stringify({formdata:value,pageno:page});
+  return new Promise(resolve => {
+    this.http.post(this.global.weeklyAssignedTargetsMemberList,formValues).subscribe(data => {
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });
+}
+
+
 }

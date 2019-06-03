@@ -58,7 +58,7 @@ var MemberemployeeqrlayoutPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content no-padding>\r\n  <div id=\"memberemployeeQRlayoutPage\">\r\n      <div id=\"upperMemberQrLayout\">\r\n\r\n        <div class=\"iconwithtitleQRT memberIcon\">\r\n          <ion-icon name=\"people\"></ion-icon>\r\n          <h6 style=\"margin-top: -16px;\">Member</h6>\r\n        </div>\r\n      \r\n      <ion-grid>\r\n        <ion-row>\r\n          <ion-col text-right>\r\n              <ion-button (click)=\"openQRScanner('MEMBER','IN')\">\r\n                  <ion-icon name=\"arrow-round-back\"></ion-icon> IN&nbsp;\r\n              </ion-button>\r\n          </ion-col>\r\n          <ion-col text-left>\r\n              <ion-button (click)=\"openQRScanner('MEMBER','OUT')\">\r\n                 OUT\r\n                  <ion-icon name=\"arrow-round-forward\"></ion-icon>\r\n              </ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-grid>\r\n\r\n\r\n      </div><!-- end of upperMemberQrLayout-->\r\n      <div id=\"middleLayout\">\r\n        <div id=\"memberInstruction\">\r\n          <!-- <p class=\"htmlicon_attd\">&#x261D;</p>\r\n          <p>For Member attendance please choose member IN or OUT </p> -->\r\n        </div>\r\n        <hr class=\"customHR\" />\r\n        <hr>\r\n        <div id=\"employeeInstruction\">\r\n            <!-- <p>For employee attendance please choose employee IN or OUT </p>\r\n            <p class=\"htmlicon_attd\">&#x261F;</p> -->\r\n          </div>\r\n      </div>\r\n\r\n      <div id=\"lowerEmployeeQrLayout\">\r\n          <div class=\"iconwithtitleQRT employeeIcon\">\r\n              <ion-icon name=\"briefcase\"></ion-icon>\r\n              <h6 >Employee</h6>\r\n          </div>\r\n          <ion-grid>\r\n              <ion-row>\r\n                <ion-col text-right>\r\n                    <ion-button (click)=\"openQRScanner('EMPLOYEE','IN')\">\r\n                        <ion-icon name=\"arrow-round-back\"></ion-icon> IN&nbsp;\r\n                    </ion-button>\r\n                </ion-col>\r\n                <ion-col text-left>\r\n                    <ion-button (click)=\"openQRScanner('EMPLOYEE','OUT')\">\r\n                       OUT\r\n                        <ion-icon name=\"arrow-round-forward\"></ion-icon>\r\n                    </ion-button>\r\n                </ion-col>\r\n              </ion-row>\r\n            </ion-grid>\r\n      </div><!-- end of upperMemberQrLayout-->\r\n  </div>\r\n</ion-content>\r\n"
+module.exports = "<ion-content no-padding>\r\n  <div id=\"memberemployeeQRlayoutPage\">\r\n      <div id=\"upperMemberQrLayout\">\r\n\r\n        <div class=\"iconwithtitleQRT memberIcon\">\r\n          <ion-icon name=\"people\"></ion-icon>\r\n          <h6 style=\"margin-top: -16px;\">Member</h6>\r\n        </div>\r\n      \r\n      <ion-grid>\r\n        <ion-row>\r\n          <ion-col text-center>\r\n              <ion-button (click)=\"openQRScanner('MEMBER','')\">\r\n                 Scan Now&nbsp;<ion-icon name=\"expand\"></ion-icon>\r\n              </ion-button>\r\n          </ion-col>\r\n          <!-- <ion-col text-left>\r\n              <ion-button (click)=\"openQRScanner('MEMBER','OUT')\">\r\n                 OUT\r\n                  <ion-icon name=\"arrow-round-forward\"></ion-icon>\r\n              </ion-button>\r\n          </ion-col> -->\r\n        </ion-row>\r\n      </ion-grid>\r\n\r\n\r\n      </div><!-- end of upperMemberQrLayout-->\r\n      <div id=\"middleLayout\">\r\n        <div id=\"memberInstruction\">\r\n          <!-- <p class=\"htmlicon_attd\">&#x261D;</p>\r\n          <p>For Member attendance please choose member IN or OUT </p> -->\r\n        </div>\r\n        <hr class=\"customHR\" />\r\n        <hr>\r\n        <div id=\"employeeInstruction\">\r\n            <!-- <p>For employee attendance please choose employee IN or OUT </p>\r\n            <p class=\"htmlicon_attd\">&#x261F;</p> -->\r\n          </div>\r\n      </div>\r\n\r\n      <div id=\"lowerEmployeeQrLayout\">\r\n          <div class=\"iconwithtitleQRT employeeIcon\">\r\n              <ion-icon name=\"briefcase\"></ion-icon>\r\n              <h6 >Employee</h6>\r\n          </div>\r\n          <ion-grid>\r\n              <ion-row>\r\n                <ion-col text-right>\r\n                    <ion-button (click)=\"openQRScanner('EMPLOYEE','IN')\">\r\n                        <ion-icon name=\"arrow-round-back\"></ion-icon> IN&nbsp;\r\n                    </ion-button>\r\n                </ion-col>\r\n                <ion-col text-left>\r\n                    <ion-button (click)=\"openQRScanner('EMPLOYEE','OUT')\">\r\n                       OUT\r\n                        <ion-icon name=\"arrow-round-forward\"></ion-icon>\r\n                    </ion-button>\r\n                </ion-col>\r\n              </ion-row>\r\n            </ion-grid>\r\n      </div><!-- end of upperMemberQrLayout-->\r\n  </div>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -87,15 +87,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/qr-scanner/ngx */ "./node_modules/@ionic-native/qr-scanner/ngx/index.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_services_http_request_handler_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/http-request-handler.service */ "./src/app/services/http-request-handler.service.ts");
+
+
 
 
 
 
 var MemberemployeeqrlayoutPage = /** @class */ (function () {
-    function MemberemployeeqrlayoutPage(qrScanner, platform) {
+    function MemberemployeeqrlayoutPage(qrScanner, platform, _httpRequestHandlerService, toastController) {
         var _this = this;
         this.qrScanner = qrScanner;
         this.platform = platform;
+        this._httpRequestHandlerService = _httpRequestHandlerService;
+        this.toastController = toastController;
+        this.attendanceDoneFor = null;
+        this.attendanceType = null;
         // Dismiss QR When Back button is pressed
         this.platform.backButton.subscribeWithPriority(0, function () {
             document.getElementsByTagName("body")[0].style.opacity = "1";
@@ -104,8 +111,12 @@ var MemberemployeeqrlayoutPage = /** @class */ (function () {
     }
     MemberemployeeqrlayoutPage.prototype.ngOnInit = function () {
     };
-    MemberemployeeqrlayoutPage.prototype.openQRScanner = function (scanfor, timetag) {
+    MemberemployeeqrlayoutPage.prototype.openQRScanner = function (scanfor, type) {
         var _this = this;
+        this.attendanceDoneFor = scanfor;
+        this.attendanceType = type;
+        console.log("this.attendanceDoneFor " + this.attendanceDoneFor);
+        console.log("this.attendanceType " + this.attendanceType);
         // Optionally request the permission early
         this.qrScanner.prepare()
             .then(function (status) {
@@ -115,11 +126,13 @@ var MemberemployeeqrlayoutPage = /** @class */ (function () {
                 document.getElementsByTagName("body")[0].style.opacity = "0";
                 // start scanning
                 _this.qr_scanner = _this.qrScanner.scan().subscribe(function (text) {
+                    _this.qrCodeScannedValue = text;
                     document.getElementsByTagName("body")[0].style.opacity = "1";
+                    console.log('Scan Completed', text);
+                    _this.captureAttendance(_this.attendanceDoneFor, _this.attendanceType, _this.qrCodeScannedValue); //
                     //this.qrScanner.hide(); // hide camera preview
                     _this.qr_scanner.unsubscribe(); // stop scanning
-                    console.log('Scanned something', text);
-                    alert("Scanned data " + text);
+                    // alert("Scanned data "+text);
                 });
             }
             else if (status.denied) {
@@ -128,10 +141,58 @@ var MemberemployeeqrlayoutPage = /** @class */ (function () {
                 // then they can grant the permission from there
             }
             else {
+                //this.presentToastWithOptions("Permission Denied.",'bottom');
                 // permission was denied, but not permanently. You can ask for permission again at a later time.
             }
         })
             .catch(function (e) { return console.log('Error is', e); });
+    };
+    MemberemployeeqrlayoutPage.prototype.captureAttendance = function (attFor, attType, scanResult) {
+        var _this = this;
+        var formData = {
+            'att_for': attFor,
+            'att_type': attType,
+            'value': scanResult
+        };
+        var response;
+        this._httpRequestHandlerService.captureAttendance(formData).then(function (data) {
+            if (data.STATUS == 200 && data.STATUS_MSG == "SUCCESS") {
+                response = data.RESULT;
+                _this.presentToastWithOptions("Successfully Done", 'bottom');
+            }
+            else if (data.STATUS == 300 && data.STATUS_MSG == "NOT_FOUND") {
+                _this.presentToastWithOptions(data.MSG_DESC, 'bottom');
+            }
+            else {
+                _this.presentToastWithOptions("Problem Occured.Try again ...", 'bottom');
+            }
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    MemberemployeeqrlayoutPage.prototype.presentToastWithOptions = function (msg, pos) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: msg,
+                            showCloseButton: true,
+                            position: pos,
+                            animated: true,
+                            color: 'light',
+                            keyboardClose: true,
+                            closeButtonText: 'X',
+                            duration: 3000,
+                            cssClass: 'customToastCls'
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     MemberemployeeqrlayoutPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -139,7 +200,7 @@ var MemberemployeeqrlayoutPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./memberemployeeqrlayout.page.html */ "./src/app/memberemployeeqrlayout/memberemployeeqrlayout.page.html"),
             styles: [__webpack_require__(/*! ./memberemployeeqrlayout.page.scss */ "./src/app/memberemployeeqrlayout/memberemployeeqrlayout.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_2__["QRScanner"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_2__["QRScanner"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"], src_app_services_http_request_handler_service__WEBPACK_IMPORTED_MODULE_4__["HttpRequestHandlerService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]])
     ], MemberemployeeqrlayoutPage);
     return MemberemployeeqrlayoutPage;
 }());

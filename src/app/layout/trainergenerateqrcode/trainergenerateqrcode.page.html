@@ -1,0 +1,29 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>trainergenerateqrcode</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content no-padding>
+  <div id="qrCodeModal">
+    
+    <div id="qrcode">
+
+        <ion-card>
+            <ion-card-header>
+             
+              <ion-card-title>QR Code</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+                <qrcode [qrdata]="qrValue" [size]="180" [level]="'M'" ></qrcode>
+                <p>Show this qr code for attendance</p>
+            </ion-card-content>
+          </ion-card>
+
+    </div>
+    <div id="close">
+       <ion-icon name="close" (click)="closeModal()"></ion-icon>
+    </div>
+  </div>
+</ion-content>

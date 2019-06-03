@@ -844,6 +844,7 @@ var map = {
 	],
 	"../dashboard/dashboard.module": [
 		"./src/app/layout/dashboard/dashboard.module.ts",
+		"common",
 		"dashboard-dashboard-module"
 	],
 	"../membercalorietargetassignmentlist/membercalorietargetassignmentlist.module": [
@@ -894,6 +895,11 @@ var map = {
 	"./layout/member_detail_assingment_layout/memberassignment-profile/memberassignment-profile.module": [
 		"./src/app/layout/member_detail_assingment_layout/memberassignment-profile/memberassignment-profile.module.ts",
 		"layout-member_detail_assingment_layout-memberassignment-profile-memberassignment-profile-module"
+	],
+	"./layout/trainergenerateqrcode/trainergenerateqrcode.module": [
+		"./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.module.ts",
+		"common",
+		"layout-trainergenerateqrcode-trainergenerateqrcode-module"
 	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
@@ -1126,6 +1132,7 @@ var routes = [
     { path: 'roleoptionmainview', loadChildren: './roleoptionmainview/roleoptionmainview.module#RoleoptionmainviewPageModule' },
     { path: 'choosecategory', loadChildren: './memberemployeeqrlayout/memberemployeeqrlayout.module#MemberemployeeqrlayoutPageModule' },
     { path: 'employeeqrgeneration', loadChildren: './employeeqrgeneration/employeeqrgeneration.module#EmployeeqrgenerationPageModule' },
+    { path: 'trainergenerateqrcode', loadChildren: './layout/trainergenerateqrcode/trainergenerateqrcode.module#TrainergenerateqrcodePageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1548,6 +1555,10 @@ var GlobalconstantService = /** @class */ (function () {
          */
         this.weeklyNotAssignedTargetsMemberList = this.APIURL + "mantratrainerAppService/getweeklyNotAssignedTargetsMembersList";
         this.assigncalorieTargetToMember_URL = this.APIURL + "mantratrainerAppService/assigncalorieTargetToMember";
+        /**
+         * @URL attendance given module
+         */
+        this.captureAttendance_URL = this.APIURL + "mantratrainerAppService/captureAttendance";
     }
     GlobalconstantService.prototype.getApiURL = function () {
         return this.APIURL;
@@ -1718,6 +1729,17 @@ var HttpRequestHandlerService = /** @class */ (function () {
         var formValues = JSON.stringify({ formdata: formObj });
         return new Promise(function (resolve) {
             _this.http.post(_this.global.assigncalorieTargetToMember_URL, formValues).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    HttpRequestHandlerService.prototype.captureAttendance = function (formObj) {
+        var _this = this;
+        var formValues = JSON.stringify({ formdata: formObj });
+        return new Promise(function (resolve) {
+            _this.http.post(_this.global.captureAttendance_URL, formValues).subscribe(function (data) {
                 resolve(data);
             }, function (err) {
                 console.log(err);

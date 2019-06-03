@@ -119,7 +119,7 @@ export class RegisterPage implements OnInit {
     this._authservice.setloginPin(this.emplMobileForm.value,this.emplMobileOTPForm.value,this.emplsetPinForm.value).then(data => {
     response = data;
     if(response.STATUS==200 && response.STATUS_MSG=="SUCCESS"){
-        this.storage.clear();
+        this.storage.remove('registeredmobile');
         let mblno = this.emplMobileForm.get('emplMobileNo').value;
         this.storage.set('registeredmobile', mblno);
         this.navCtrl.navigateForward('login');

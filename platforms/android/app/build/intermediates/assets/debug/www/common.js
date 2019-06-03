@@ -196,6 +196,73 @@ var SecondtabPage = /** @class */ (function () {
 
 
 
+/***/ }),
+
+/***/ "./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.page.html":
+/*!******************************************************************************!*\
+  !*** ./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.page.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <ion-header>\n  <ion-toolbar>\n    <ion-title>trainergenerateqrcode</ion-title>\n  </ion-toolbar>\n</ion-header> -->\n\n<ion-content no-padding>\n  <div id=\"qrCodeModal\">\n    \n    <div id=\"qrcode\">\n\n        <ion-card>\n            <ion-card-header>\n             \n              <ion-card-title>QR Code</ion-card-title>\n            </ion-card-header>\n          \n            <ion-card-content>\n                <qrcode [qrdata]=\"qrValue\" [size]=\"180\" [level]=\"'M'\" ></qrcode>\n                <p>Show this qr code for attendance</p>\n            </ion-card-content>\n          </ion-card>\n\n    </div>\n    <div id=\"close\">\n       <ion-icon name=\"close\" (click)=\"closeModal()\"></ion-icon>\n    </div>\n  </div>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.page.scss":
+/*!******************************************************************************!*\
+  !*** ./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.page.scss ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#qrCodeModal {\n  background: #ff6309;\n  position: relative;\n  height: 100%;\n  padding-top: 5rem; }\n  #qrCodeModal ion-card {\n    margin: 0;\n    width: 60%;\n    margin: 0 auto;\n    background: #FFF; }\n  #qrCodeModal ion-card ion-card-header {\n      background: #f9f9f9;\n      margin-bottom: 12%; }\n  #qrCodeModal ion-card ion-card-header ion-card-title {\n        text-align: center; }\n  #qrCodeModal ion-card ion-card-content p {\n      padding-top: 10%;\n      text-align: center;\n      letter-spacing: 1px;\n      font-size: 12px; }\n  #qrCodeModal #close {\n    position: absolute;\n    bottom: 7rem;\n    left: 0;\n    right: 0;\n    margin: auto;\n    text-align: center; }\n  #qrCodeModal #close ion-icon {\n      font-size: 2rem;\n      color: #FFF;\n      box-shadow: 2px 2px 8px #ae4609;\n      border-radius: 50px;\n      padding: 2%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGF5b3V0L3RyYWluZXJnZW5lcmF0ZXFyY29kZS9EOlxcQXBwRGV2ZWxvcG1lbnRcXE1hbnRyYUFwcFxcbWFudHJhdHJhaW5lci9zcmNcXGFwcFxcbGF5b3V0XFx0cmFpbmVyZ2VuZXJhdGVxcmNvZGVcXHRyYWluZXJnZW5lcmF0ZXFyY29kZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBMkI7RUFDM0Isa0JBQWtCO0VBQ2xCLFlBQVc7RUFDWCxpQkFBaUIsRUFBQTtFQUpyQjtJQU9RLFNBQVE7SUFDUixVQUFVO0lBQ1YsY0FBYztJQUNkLGdCQUFnQixFQUFBO0VBVnhCO01BY1ksbUJBQW1CO01BQ25CLGtCQUFrQixFQUFBO0VBZjlCO1FBa0JnQixrQkFBa0IsRUFBQTtFQWxCbEM7TUF3QmdCLGdCQUFnQjtNQUNoQixrQkFBa0I7TUFDbEIsbUJBQW1CO01BQ25CLGVBQWUsRUFBQTtFQTNCL0I7SUFrQ1Esa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixPQUFPO0lBQ1AsUUFBUTtJQUNSLFlBQVk7SUFDWixrQkFBa0IsRUFBQTtFQXZDMUI7TUEwQ1ksZUFBZTtNQUNmLFdBQVc7TUFDWCwrQkFBK0I7TUFDL0IsbUJBQW1CO01BQ25CLFdBQVcsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2xheW91dC90cmFpbmVyZ2VuZXJhdGVxcmNvZGUvdHJhaW5lcmdlbmVyYXRlcXJjb2RlLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNxckNvZGVNb2RhbHtcclxuICAgIGJhY2tncm91bmQ6IHJnYigyNTUsIDk5LCA5KTtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGhlaWdodDoxMDAlO1xyXG4gICAgcGFkZGluZy10b3A6IDVyZW07XHJcblxyXG4gICAgaW9uLWNhcmR7XHJcbiAgICAgICAgbWFyZ2luOjA7XHJcbiAgICAgICAgd2lkdGg6IDYwJTtcclxuICAgICAgICBtYXJnaW46IDAgYXV0bztcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjRkZGO1xyXG5cclxuICAgICAgICBpb24tY2FyZC1oZWFkZXJ7XHJcblxyXG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjZjlmOWY5O1xyXG4gICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxMiU7XHJcblxyXG4gICAgICAgICAgICBpb24tY2FyZC10aXRsZXtcclxuICAgICAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgaW9uLWNhcmQtY29udGVudHtcclxuICAgICAgICAgICAgcHtcclxuICAgICAgICAgICAgICAgIHBhZGRpbmctdG9wOiAxMCU7XHJcbiAgICAgICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICAgICAgICAgICAgICBsZXR0ZXItc3BhY2luZzogMXB4O1xyXG4gICAgICAgICAgICAgICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgICAgIFxyXG4gICAgfVxyXG5cclxuICAgICNjbG9zZXtcclxuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgICAgYm90dG9tOiA3cmVtO1xyXG4gICAgICAgIGxlZnQ6IDA7XHJcbiAgICAgICAgcmlnaHQ6IDA7XHJcbiAgICAgICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHJcbiAgICAgICAgaW9uLWljb257XHJcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogMnJlbTtcclxuICAgICAgICAgICAgY29sb3I6ICNGRkY7XHJcbiAgICAgICAgICAgIGJveC1zaGFkb3c6IDJweCAycHggOHB4ICNhZTQ2MDk7XHJcbiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XHJcbiAgICAgICAgICAgIHBhZGRpbmc6IDIlO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxufVxyXG5cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.page.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.page.ts ***!
+  \****************************************************************************/
+/*! exports provided: TrainergenerateqrcodePage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TrainergenerateqrcodePage", function() { return TrainergenerateqrcodePage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+var TrainergenerateqrcodePage = /** @class */ (function () {
+    function TrainergenerateqrcodePage(navParams, modalCtrl) {
+        this.modalCtrl = modalCtrl;
+        this.qrValue = "" + navParams.get('mobile');
+    }
+    TrainergenerateqrcodePage.prototype.ngOnInit = function () {
+    };
+    TrainergenerateqrcodePage.prototype.closeModal = function () {
+        this.modalCtrl.dismiss();
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], TrainergenerateqrcodePage.prototype, "mobile", void 0);
+    TrainergenerateqrcodePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-trainergenerateqrcode',
+            template: __webpack_require__(/*! ./trainergenerateqrcode.page.html */ "./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.page.html"),
+            styles: [__webpack_require__(/*! ./trainergenerateqrcode.page.scss */ "./src/app/layout/trainergenerateqrcode/trainergenerateqrcode.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])
+    ], TrainergenerateqrcodePage);
+    return TrainergenerateqrcodePage;
+}());
+
+
+
 /***/ })
 
 }]);

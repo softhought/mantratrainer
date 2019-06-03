@@ -34,7 +34,16 @@
 
   </ion-list>
 
-
+  <ion-card *ngIf="noRecordsFound">
+    <ion-card-header text-center>
+      <ion-card-subtitle>No records found</ion-card-subtitle>
+     
+    </ion-card-header>
+  
+    <ion-card-content>
+      <img src="assets/layout/no_data.svg" />
+    </ion-card-content>
+  </ion-card>
 
   <!-- Skeleton screen -->
 <div *ngIf="!isListDataAvailable">
